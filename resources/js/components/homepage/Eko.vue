@@ -1,7 +1,5 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-<div class="bg-blue-100 rounded-lg p-6 flex items-center sm:p-10">
-                <div class="max-w-sm mx-auto text-center">
                     <h3 class="font-semibold text-lg text-gray-900">Eko</h3>
                        <div class="py-8">
                         <apexchart
@@ -11,8 +9,7 @@
                           :series="series"
                       ></apexchart>
                       </div>
-                </div>
-            </div>
+
 </template>
 
 <script>
