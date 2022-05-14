@@ -152,11 +152,14 @@
             </div>
         </div>
 
-        <div class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px my-16">
-            <div v-for="(comp,idx) in selectedComponents" :key="idx">
+
+    <div class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
+        <div v-for="(comp,idx) in selectedComponents" :key="idx" :class="[idx === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '', idx === 1 ? 'sm:rounded-tr-lg' : '', idx === selectedComponents.length - 2 ? 'sm:rounded-bl-lg' : '', idx === selectedComponents.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '', 'relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500']">
+            <div>
                 <component :is="comp" ></component>
             </div>
         </div>
+    </div>
 
         <div
             class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px my-16"
