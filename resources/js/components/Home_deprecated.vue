@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <div v-if="firstTimeVisitor" class="relative bg-white py-16 sm:py-12 lg:py-16 border-solid border-2 border-blue-600">
+        <div class="relative bg-white py-16 sm:py-12 lg:py-16 border-solid border-2 border-blue-600">
             <div
                 class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8"
             >
@@ -86,7 +86,7 @@
                             </div>
                         </div>
 
-                        <div  class="flow-root rounded-lg bg-gray-50 px-6 pb-8">
+                        <div class="flow-root rounded-lg bg-gray-50 px-6 pb-8">
                             <div class="-mt-6">
                                 <div>
                                     <span
@@ -111,7 +111,6 @@
                                         step="mark"
                                     />
                                 </n-space>
-
                             </div>
                         </div>
 
@@ -142,19 +141,8 @@
                                 </n-space>
                             </div>
                         </div>
-
-      
                     </div>
                 </div>
-            </div>
-            <div style="float: right">
-                <button @click="firstTimeVisitor=false;localStorage.setItem('FirstTimeVisitor', false);" class="button_blue">Shrani</button>
-            </div>
-        </div>
-
-        <div class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px my-16">
-            <div v-for="(comp,idx) in selectedComponents" :key="idx">
-                <component :is="comp" ></component>
             </div>
         </div>
 
@@ -226,10 +214,7 @@
 </template>
 
 <script>
-import { ref, defineComponent, onMounted,onBeforeMount } from "vue";
-import Investments from "./homepage/Investments"
-import Kredit from "./homepage/Kredit"
-import Eko from "./homepage/Eko"
+import { ref, defineComponent } from "vue";
 import { NSpace, NSlider } from "naive-ui";
 import {
     BadgeCheckIcon,
@@ -307,9 +292,6 @@ export default defineComponent({
     },
     components: {
         NSpace,
-        Investments,
-        Eko,
-        Kredit,
         NSlider,
         CashIcon,
         GlobeIcon,
@@ -318,28 +300,9 @@ export default defineComponent({
     setup() {
         const completedSteps = ref(0);
         const totalSteps = ref(10);
-        var selectedComponents=ref([]);
-        var firstTimeVisitor=ref(true)
-    onBeforeMount(()=>{
-        selectedComponents.value=JSON.parse(localStorage.getItem("SelectedComponents")); 
-        if (localStorage.getItem("FirstTimeVisitor") !== null) {
-            firstTimeVisitor.value=(localStorage.getItem("FirstTimeVisitor") === 'true'); 
-        }
-        
-    })
-    onMounted(()=>{
-    changeSelectedComponents(["Investments","Kredit","Eko"])
-       console.log(firstTimeVisitor.value)
-    })
-    const changeSelectedComponents = (newComponents)=>{
-        localStorage.setItem("SelectedComponents", JSON.stringify(newComponents)); //store colors
-    }
-    return {
-            firstTimeVisitor,
-            localStorage,
-            changeSelectedComponents,
+
+        return {
             completedSteps,
-            selectedComponents,
             totalSteps,
             actions,
             refstroski: ref(0),
@@ -362,8 +325,6 @@ export default defineComponent({
             },
         };
     },
-
-
 });
 </script>
 
@@ -373,19 +334,5 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.button_blue {
-  background-color: #89CFF0; /* Blue */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-.button_blue:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 </style>
