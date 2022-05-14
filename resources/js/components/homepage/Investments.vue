@@ -2,7 +2,7 @@
 <template>
 <div class="bg-blue-100 rounded-lg p-6 flex items-center sm:p-10">
                 <div class="max-w-sm mx-auto text-center">
-                    <h3 class="font-semibold text-lg text-gray-900">KREDIT</h3>
+                    <h3 class="font-semibold text-lg text-gray-900">Invest</h3>
                     <p class="mt-6 text-2xl text-emerald-500">1/5€</p>
                 </div>
             </div>

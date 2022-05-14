@@ -12,7 +12,7 @@
       <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Modify your home screen</h3>
       <ul role="list" class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <li v-for="(person, personIdx) in people" :key="personIdx">
-          <button type="button" class="group p-2 w-full flex items-center justify-between rounded-full border border-gray-300 shadow-sm space-x-3 text-left hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <button @click="selectedClick(person)" v-bind:style=" { backgroundColor : (selectedComponents.includes(person.id) ? 'green' :'white') } " type="button" class="group p-2 w-full flex items-center justify-between rounded-full border border-gray-300 shadow-sm space-x-3 text-left hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             <span class="min-w-0 flex-1 flex items-center space-x-3">
               <span class="block flex-shrink-0">
                 <img class="h-10 w-10 rounded-full" :src="person.imageUrl" alt="" />
@@ -33,38 +33,79 @@
       </ul>
     </div>
     <div class="content-center">
-      <button type="button" class="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
+      <button @click="clickedSaveButton" type="button" class="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
     </div>
   </div>
 </template>
 
-<script setup>
+<script>
 import { PlusIcon, MinusIcon } from '@heroicons/vue/solid'
+import {onMounted, ref,defineComponent} from "vue"
 
+export default defineComponent({
+setup(){
+var selectedComponents=ref([])
+
+const clickedSaveButton=()=>{
+   localStorage.setItem("SelectedComponents", JSON.stringify(selectedComponents.value));
+}
+
+const selectedClick=(person)=>{
+console.log(selectedComponents.value)
+if (selectedComponents.value.includes(person.id)){
+selectedComponents.value = selectedComponents.value.filter(e => e !== person.id);
+} else{
+selectedComponents.value.push(person.id);
+}
+
+}
+onMounted(()=>{
+  if (localStorage.getItem("SelectedComponents") !== null) {
+            selectedComponents.value=JSON.parse(localStorage.getItem("SelectedComponents"));
+            console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+        }
+
+})
 const people = [
   {
     name: 'Costs',
+    id:"Costs",
     role: 'Take control of your spendings.',
     imageUrl:
       'https://storage.googleapis.com/coworking_images/JFBank/profits.png',
   },
   {
     name: 'Investments',
+    id:"Investments",
     role: 'Take care of your future.',
     imageUrl:
       'https://storage.googleapis.com/coworking_images/JFBank/profits.png',
   },
   {
     name: 'Planet',
+    id:"Eko",
     role: 'Save the Earth.',
     imageUrl:
       'https://storage.googleapis.com/coworking_images/JFBank/profits.png',
   },
   {
     name: 'Loans',
+    id:"Kredit",
     role: 'Get the money you need.',
     imageUrl:
       'https://storage.googleapis.com/coworking_images/JFBank/profits.png',
   },
 ]
+
+return{
+  selectedComponents,
+  selectedClick,
+  clickedSaveButton,
+  localStorage,
+  people
+
+}
+
+}
+})
 </script>

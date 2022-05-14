@@ -233,6 +233,7 @@ import { ref, defineComponent, onMounted,onBeforeMount } from "vue";
 import Investments from "./homepage/Investments"
 import Kredit from "./homepage/Kredit"
 import Eko from "./homepage/Eko"
+import Costs from "./homepage/Costs"
 import { NSpace, NSlider } from "naive-ui";
 import {
     BadgeCheckIcon,
@@ -313,6 +314,7 @@ export default defineComponent({
         Investments,
         Eko,
         Kredit,
+        Costs,
         NSlider,
         CashIcon,
         GlobeIcon,
@@ -330,17 +332,10 @@ export default defineComponent({
         }
         
     })
-    onMounted(()=>{
-    changeSelectedComponents(["Investments","Kredit","Eko"])
-       console.log(firstTimeVisitor.value)
-    })
-    const changeSelectedComponents = (newComponents)=>{
-        localStorage.setItem("SelectedComponents", JSON.stringify(newComponents)); //store colors
-    }
+
     return {
             firstTimeVisitor,
             localStorage,
-            changeSelectedComponents,
             completedSteps,
             selectedComponents,
             totalSteps,
