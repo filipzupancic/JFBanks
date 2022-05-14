@@ -1,5 +1,5 @@
-## finbit
+## JFBanks
 
-Pomaga pri vsem, kar finbit.
+Johnny F*** Banks.
 
 Minimum Lovable Product (MLP) : https://hidden-dawn-84911.herokuapp.com/
