@@ -10,13 +10,13 @@
                             <p
                                 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
                             >
-                                Prihrani s finbit-om.
+                                Prihrani s JFBanks-om.
                             </p>
                             <p
                                 class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto"
                             >
                                 Glede na to, kako pomembno ti je, da si znižaš
-                                stroške, bo finbit prilagodil nasvete, kje in
+                                stroške, bo JFBanks prilagodil nasvete, kje in
                                 kako lahko prihraniš.
                             </p>
                         </div>

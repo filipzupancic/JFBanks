@@ -55,7 +55,7 @@
                         </router-link>
                     </h3>
                     <p class="mt-2 text-sm text-gray-500">
-                        finbit ti pomaga do najbolj ugodnega kredita hitro in preprosto.
+                        JFBanks ti pomaga do najbolj ugodnega kredita hitro in preprosto.
                     </p>
                 </div>
                 <span

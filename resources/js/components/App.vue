@@ -1,5 +1,8 @@
 <template>
 <div>
+<Header style="z-index: 100;"></Header>
+</div>
+<div>
         <router-view> </router-view>
 </div>
 <div>
@@ -10,6 +13,8 @@
 <script>
 import { defineComponent } from "vue";
 import BottomChat from './BottomChat'
+import Header from "./Header";
+
     export default defineComponent({
         data(){
             return{
@@ -18,6 +23,7 @@ import BottomChat from './BottomChat'
         },
         components:{
             "bottom-chat":BottomChat,
+            Header,
         },
         setup(){
             return{
