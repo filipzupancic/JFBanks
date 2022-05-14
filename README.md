@@ -2,4 +2,4 @@
 
 Johnny F*** Banks.
 
-Minimum Lovable Product (MLP) : https://hidden-dawn-84911.herokuapp.com/
+Minimum Lovable Product (MLP) : https://young-ridge-33595.herokuapp.com/
