@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'finbit') }}</title>
+    <title>{{ config('app.name', 'JFBanks') }}</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ URL::to('https://tailwindui.com/img/logos/workflow-mark-blue-600.svg') }}" />
 
@@ -26,8 +26,6 @@
 @if (Auth::check())
 <meta name="user_id" content="{{ Auth::user()->id }}" />
 @endif
-
-@include('layouts.navigation')
 
 <body class="font-sans antialiased">
     <div class="min-h-screen">

@@ -5,10 +5,10 @@
                 <p
                     class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl"
                 >
-                    finbit
+                    Johnny F. Banks
                 </p>
                 <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-                    finance in kredit.
+                    At your service.
                 </p>
             </div>
         </div>
@@ -244,7 +244,7 @@ const actions = [
     {
         title: "Hitro in ugodno do kredita.",
         content:
-            "Finbit te pelje čez celoten proces pridobivanja stanovanjskega posojila, od izračuna kreditne sposobnosti in pridobivanja najboljše obrestne mere, do podpisa pogodbe.",
+            "JFBanks te pelje čez celoten proces pridobivanja stanovanjskega posojila, od izračuna kreditne sposobnosti in pridobivanja najboljše obrestne mere, do podpisa pogodbe.",
         href: "/kredit",
         icon: ClockIcon,
         iconForeground: "text-teal-700",
@@ -270,7 +270,7 @@ const actions = [
     {
         title: "Eko se splača.",
         content:
-            "Skrb za naš planet ni več zgolj dobrodelnost, ampak se dejansko splača. finbit ti pomaga razumeti tvoj ogljični odtis in svetuje, kako ga lahko zmanjšaš in hkrati prihraniš.",
+            "Skrb za naš planet ni več zgolj dobrodelnost, ampak se dejansko splača. JFBanks ti pomaga razumeti tvoj ogljični odtis in svetuje, kako ga lahko zmanjšaš in hkrati prihraniš.",
         href: "/eko",
         icon: GlobeIcon,
         iconForeground: "text-emerald-700",
@@ -279,7 +279,7 @@ const actions = [
     {
         title: "Digitalna denarnica.",
         content:
-            "Finbit ti omogoča, da preprosto povežeš vse bančne račune in digitalno denarnico na enem mestu.",
+            "JFBanks ti omogoča, da preprosto povežeš vse bančne račune in digitalno denarnico na enem mestu.",
         href: "/denarnica",
         icon: DocumentTextIcon,
         iconForeground: "text-yellow-700",
@@ -288,7 +288,7 @@ const actions = [
     {
         title: "Osebni svetovalec vedno pri roki",
         content:
-            "Finbit je vedno na voljo za vprašanja na temo financ, lahko pa te tudi hitro poveže z bančnih uslužbencem.",
+            "JFBanks je vedno na voljo za vprašanja na temo financ, lahko pa te tudi hitro poveže z bančnih uslužbencem.",
         href: "/obvestila",
         icon: UsersIcon,
         iconForeground: "text-sky-700",
