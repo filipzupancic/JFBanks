@@ -12,16 +12,45 @@
                 </p>
             </div>
         </div>
-        <div class="flex place-content-center">
-        <div
-          class="px-4 mt-4 py-2 text-white border text-center bg-blue-500 hover:bg-blue-600 cursor-pointer"
-          style="width: 30%; border-radius: 1rem;"
-        >
-          <button id="map-button" @click="showMapButtonClick">Hide parameters</button>
+        <div class="lg:grid lg:grid-cols-2 py-16 lg:gap-x-6 xl:gap-x-8">
+            <div class="bg-gray-100 rounded-lg p-6 flex items-center sm:p-10">
+                <div class="max-w-sm mx-auto text-center">
+                    <h3 class="font-semibold text-lg text-gray-900">Tvoja sredstva</h3>
+                    <p class="mt-6 text-2xl text-emerald-500">2,000,000,00 €</p>
+                </div>
+            </div>
+
+            <div
+                class="mt-6 relative py-12 px-6 flex items-center sm:py-16 sm:px-10 lg:mt-0"
+            >
+                <div class="absolute inset-0 rounded-lg overflow-hidden">
+                    <img
+                        src="https://tailwindui.com/img/ecommerce-images/footer-02-exclusive-sale.jpg"
+                        alt=""
+                        class="w-full h-full filter saturate-0 object-center object-cover"
+                    />
+                    <div class="absolute inset-0 bg-blue-600 bg-opacity-90" />
+                </div>
+                <div class="relative max-w-sm mx-auto text-center">
+                    <h3
+                        class="text-2xl font-extrabold tracking-tight text-white"
+                    >
+                        Finance na enem mestu
+                    </h3>
+                    <p class="mt-2 text-gray-200">
+                        Preprosto poveži svoje račune in ostalo prepusti nam.
+                        <a
+                            href="/denarnica"
+                            class="font-bold text-white whitespace-nowrap hover:text-gray-200"
+                            >Poveži račune.<span aria-hidden="true">
+                                &rarr;</span
+                            ></a
+                        >
+                    </p>
+                </div>
+            </div>
         </div>
-        </div>
-        <div id="map-element">
-            <div class="relative bg-white py-16 sm:py-12 lg:py-16 border-solid border-2 border-blue-600">
+        <div v-if="firstTimeVisitor" class="relative bg-white py-16 sm:py-12 lg:py-16">
             <div
                 class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8"
             >
@@ -49,7 +78,7 @@
                                 </h3>
                                 <n-space vertical>
                                     <n-slider
-                                        v-model:value="value"
+                                        v-model:value="stroskiValue"
                                         :marks="stroski"
                                         step="mark"
                                     />
@@ -77,7 +106,7 @@
                                 </h3>
                                 <n-space vertical>
                                     <n-slider
-                                        v-model:value="value"
+                                        v-model:value="ekoValue"
                                         :marks="eko"
                                         step="mark"
                                     />
@@ -106,7 +135,7 @@
                                 </h3>
                                 <n-space vertical>
                                     <n-slider
-                                        v-model:value="value"
+                                        v-model:value="investValue"
                                         :marks="invest"
                                         step="mark"
                                     />
@@ -118,103 +147,17 @@
                     </div>
                 </div>
             </div>
-            <!-- <div style="float: right">
-                <button @click="firstTimeVisitor=false;localStorage.setItem('FirstTimeVisitor', false);" class="button_blue">Shrani</button>
-            </div> -->
-        </div>
-        </div>
-        <div class="lg:grid lg:grid-cols-2 py-16 lg:gap-x-6 xl:gap-x-8">
-            <div class="bg-gray-100 rounded-lg p-6 flex items-center sm:p-10">
-                <div class="max-w-sm mx-auto text-center">
-                    <h3 class="font-semibold text-lg text-gray-900">Tvoja sredstva</h3>
-                    <p class="mt-6 text-2xl text-emerald-500">2,000,000,00 €</p>
+                <div class="content-center" style="align-items: center;text-align:center;">
+                    <button @click="saveSlider" type="button" class="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
                 </div>
-            </div>
+        </div>
 
-            <div
-                class="mt-6 relative py-12 px-6 flex items-center sm:py-16 sm:px-10 lg:mt-0"
-            >
-                <div class="absolute inset-0 rounded-lg overflow-hidden">
-                    <img
-                        src="https://tailwindui.com/img/ecommerce-images/footer-02-exclusive-sale.jpg"
-                        alt=""
-                        class="w-full h-full filter saturate-0 object-center object-cover"
-                    />
-                    <div class="absolute inset-0 bg-blue-600 bg-opacity-90" />
-                </div>
-                <div class="relative max-w-sm mx-auto text-center">
-                    <h3
-                        class="text-2xl font-extrabold tracking-tight text-white"
-                    >
-                        One Stop Shop for your personal finance 
-                    </h3>
-                    <p class="mt-2 text-gray-200">
-                        Simply connect your accounts in one place.
-                        <a
-                            href="/denarnica"
-                            class="font-bold text-white whitespace-nowrap hover:text-gray-200"
-                            >Connect accounts.<span aria-hidden="true">
-                                &rarr;</span
-                            ></a
-                        >
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-    <div class="bg-gray-50 pt-12 sm:pt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Your goals</h2>
-        <p class="mt-3 text-xl text-gray-500 sm:mt-4">Set your financial goals and we'll get you there in the shortest time possible.</p>
-      </div>
-    </div>
-    <div class="mt-10 pb-12 bg-white sm:pb-16">
-      <div class="relative">
-        <div class="absolute inset-0 h-1/2 bg-gray-50" />
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="max-w-4xl mx-auto">
-            <dl class="rounded-lg bg-white shadow-lg sm:grid sm:grid-cols-3">
-              <div class="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r">
-                <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Tesla</dt>
-                <dd class="order-1 text-3xl font-extrabold text-blue-600">30k saved</dd>
-              </div>
-              <div class="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r">
-                <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">House</dt>
-                <dd class="order-1 text-3xl font-extrabold text-emerald-600">80% to loan</dd>
-              </div>
-              <div class="flex flex-col border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l">
-                <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Thailand trip</dt>
-                <dd class="order-1 text-3xl font-extrabold text-blue-600">2k saved</dd>
-              </div>
-            </dl>
-            <dl class="rounded-lg bg-white shadow-lg sm:grid sm:grid-cols-3">
-              <div class="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r">
-                <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Retire at 40</dt>
-                <dd class="order-1 text-3xl font-extrabold text-emerald-600">25k invested</dd>
-              </div>
-              <div class="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r">
-                <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Marriage</dt>
-                <dd class="order-1 text-3xl font-extrabold text-blue-600">7k saved</dd>
-              </div>
-              <div class="flex flex-col border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l">
-                <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Solar panels</dt>
-                <dd class="order-1 text-3xl font-extrabold text-emerald-600">40% to EKO loan</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <ul role="list" class="space-y-3">
+    <li v-for="(comp,idx) in selectedComponents" :key="idx" style="align-items: center;text-align:center;" class="bg-white shadow overflow-hidden rounded-md px-6 py-4">
+      <component :is="comp" ></component>
+    </li>
+    </ul>
 
-    <!-- <div class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
-        <div v-for="(comp,idx) in selectedComponents" :key="idx" :class="[idx === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '', idx === 1 ? 'sm:rounded-tr-lg' : '', idx === selectedComponents.length - 2 ? 'sm:rounded-bl-lg' : '', idx === selectedComponents.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '', 'relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500']">
-            <div>
-                <component :is="comp" ></component>
-            </div>
-        </div>
-    </div>
 
         <div
             class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px my-16"
@@ -252,7 +195,7 @@
                 <div class="mt-8">
                     <h3 class="text-lg font-medium">
                         <a :href="action.href" class="focus:outline-none">
-                             Extend touch target to entire panel 
+                            <!-- Extend touch target to entire panel -->
                             <span class="absolute inset-0" aria-hidden="true" />
                             {{ action.title }}
                         </a>
@@ -277,17 +220,18 @@
                     </svg>
                 </span>
             </div>
-        </div>-->
+        </div>
 
         
-    </div> 
+    </div>
 </template>
 
 <script>
-import { ref, defineComponent, onMounted,onBeforeMount } from "vue";
+import { ref,reactive, defineComponent, onMounted,onBeforeMount } from "vue";
 import Investments from "./homepage/Investments"
 import Kredit from "./homepage/Kredit"
 import Eko from "./homepage/Eko"
+import Costs from "./homepage/Costs"
 import { NSpace, NSlider } from "naive-ui";
 import {
     BadgeCheckIcon,
@@ -297,8 +241,6 @@ import {
     GlobeIcon,
     DocumentTextIcon,
 } from "@heroicons/vue/outline";
-
-var show = false;
 
 const actions = [
     {
@@ -357,44 +299,66 @@ const actions = [
 ];
 
 export default defineComponent({
-    data: function () {
-    return {
-      show: false,
-    };
-  },
+    data() {
+        return {
+           
+        };
+    },
+    methods: {
+        
+    },
     components: {
         NSpace,
         Investments,
         Eko,
         Kredit,
+        Costs,
         NSlider,
         CashIcon,
         GlobeIcon,
         BadgeCheckIcon,
     },
     setup() {
+
+
+         var stroskiValue= ref(0)
+var ekoValue= ref(0)
+              
+
+var investValue=ref(0)
+
         const completedSteps = ref(0);
         const totalSteps = ref(10);
-        var selectedComponents=ref([]);
+        var selectedComponents=ref(["Investments","Eko","Kredit","Costs"]);
         var firstTimeVisitor=ref(true)
     onBeforeMount(()=>{
-        selectedComponents.value=JSON.parse(localStorage.getItem("SelectedComponents")); 
+            if (localStorage.getItem("SelectedComponents") !== null) {
+            selectedComponents.value=JSON.parse(localStorage.getItem("SelectedComponents")); 
+        }else{
+            localStorage.setItem("SelectedComponents", JSON.stringify(selectedComponents.value));
+        }
+        
         if (localStorage.getItem("FirstTimeVisitor") !== null) {
             firstTimeVisitor.value=(localStorage.getItem("FirstTimeVisitor") === 'true'); 
         }
         
     })
-    onMounted(()=>{
-    changeSelectedComponents(["Investments","Kredit","Eko"])
-       console.log(firstTimeVisitor.value)
-    })
-    const changeSelectedComponents = (newComponents)=>{
-        localStorage.setItem("SelectedComponents", JSON.stringify(newComponents)); //store colors
-    }
+const saveSlider=()=>{
+firstTimeVisitor.value=false; 
+localStorage.setItem('FirstTimeVisitor', false);
+localStorage.setItem("Stroski", JSON.stringify(stroskiValue.value));
+localStorage.setItem("Eko", JSON.stringify(ekoValue.value));
+localStorage.setItem("Invest", JSON.stringify(investValue.value));
+
+
+}
     return {
+        stroskiValue,
+        ekoValue,
+        investValue,
+        saveSlider,
             firstTimeVisitor,
             localStorage,
-            changeSelectedComponents,
             completedSteps,
             selectedComponents,
             totalSteps,
@@ -402,7 +366,6 @@ export default defineComponent({
             refstroski: ref(0),
             refeko: ref(0),
             refinvest: ref(0),
-            show,
             stroski: {
                 0: "ne šparam",
                 50: "neki vmes",
@@ -420,19 +383,7 @@ export default defineComponent({
             },
         };
     },
-    methods: {
-    showMapButtonClick: function () {
-      if (!show) {
-        document.getElementById("map-element").style.display = "none";
-        document.getElementById("map-button").innerHTML = "Show parameters";
-      } else {
-        document.getElementById("map-button").innerHTML = "Hide parameters";
-        document.getElementById("map-element").style.display = "block";
-      }
-      show = !show;
-      console.log(show);
-    },
-  },
+
 
 });
 </script>
