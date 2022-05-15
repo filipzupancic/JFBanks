@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <div v-if="firstTimeVisitor" class="relative bg-white py-16 sm:py-12 lg:py-16 border-solid border-2 border-blue-600">
+        <div v-if="firstTimeVisitor" class="relative bg-white py-16 sm:py-12 lg:py-16">
             <div
                 class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8"
             >
@@ -78,7 +78,7 @@
                                 </h3>
                                 <n-space vertical>
                                     <n-slider
-                                        v-model:value="value"
+                                        v-model:value="stroskiValue"
                                         :marks="stroski"
                                         step="mark"
                                     />
@@ -106,7 +106,7 @@
                                 </h3>
                                 <n-space vertical>
                                     <n-slider
-                                        v-model:value="value"
+                                        v-model:value="ekoValue"
                                         :marks="eko"
                                         step="mark"
                                     />
@@ -135,7 +135,7 @@
                                 </h3>
                                 <n-space vertical>
                                     <n-slider
-                                        v-model:value="value"
+                                        v-model:value="investValue"
                                         :marks="invest"
                                         step="mark"
                                     />
@@ -147,19 +147,17 @@
                     </div>
                 </div>
             </div>
-            <div style="float: right">
-                <button @click="firstTimeVisitor=false;localStorage.setItem('FirstTimeVisitor', false);" class="button_blue">Shrani</button>
-            </div>
+                <div class="content-center">
+                    <button @click="saveSlider();firstTimeVisitor=false; localStorage.setItem('FirstTimeVisitor', false);" type="button" class="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
+                </div>
         </div>
 
+    <ul role="list" class="space-y-3">
+    <li v-for="(comp,idx) in selectedComponents" :key="idx" class="bg-white shadow overflow-hidden rounded-md px-6 py-4">
+      <component :is="comp" ></component>
+    </li>
+    </ul>
 
-    <div class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
-        <div v-for="(comp,idx) in selectedComponents" :key="idx" :class="[idx === 0 ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none' : '', idx === 1 ? 'sm:rounded-tr-lg' : '', idx === selectedComponents.length - 2 ? 'sm:rounded-bl-lg' : '', idx === selectedComponents.length - 1 ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none' : '', 'relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500']">
-            <div>
-                <component :is="comp" ></component>
-            </div>
-        </div>
-    </div>
 
         <div
             class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px my-16"
@@ -229,7 +227,7 @@
 </template>
 
 <script>
-import { ref, defineComponent, onMounted,onBeforeMount } from "vue";
+import { ref,reactive, defineComponent, onMounted,onBeforeMount } from "vue";
 import Investments from "./homepage/Investments"
 import Kredit from "./homepage/Kredit"
 import Eko from "./homepage/Eko"
@@ -321,6 +319,14 @@ export default defineComponent({
         BadgeCheckIcon,
     },
     setup() {
+
+
+         var stroskiValue= ref(0)
+var ekoValue= ref(0)
+              
+
+var investValue=ref(0)
+
         const completedSteps = ref(0);
         const totalSteps = ref(10);
         var selectedComponents=ref([]);
@@ -332,8 +338,18 @@ export default defineComponent({
         }
         
     })
+const saveSlider=()=>{
+localStorage.setItem("Stroski", JSON.stringify(stroskiValue.value));
+localStorage.setItem("Eko", JSON.stringify(ekoValue.value));
+localStorage.setItem("Invest", JSON.stringify(investValue.value));
 
+
+}
     return {
+        stroskiValue,
+        ekoValue,
+        investValue,
+        saveSlider,
             firstTimeVisitor,
             localStorage,
             completedSteps,
