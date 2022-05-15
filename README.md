@@ -4,7 +4,7 @@ Johnny F*** Banks.
 
 Minimum Lovable Product (MLP) : https://young-ridge-33595.herokuapp.com/
 
-Johnny for banks is nothing less but the most sophisticated personal finance assistant on the market. This app is really all about reaching your financial goals and do it the way you want it. 
+Johnny F. Banks is nothing less but the most sophisticated personal finance assistant on the market. This app is really all about reaching your financial goals and do it the way you want it.
 
 It allows you to:
 1.) Connect all accounts in one place.
