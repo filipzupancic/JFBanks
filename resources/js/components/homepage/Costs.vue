@@ -7,7 +7,7 @@
                 <h2
                     class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
                 >
-                    <span class="block">Tvoji stroški</span>
+                    <span class="block">Your costs</span>
                 </h2>
             </div>
         </div>
@@ -71,13 +71,14 @@
                     </span>
                 </div>
                 <div class="mt-8">
-                    <h3 class="text-lg font-medium">
-                        <div class="focus:outline-none">
-                            <!-- Extend touch target to entire panel -->
-                            <span class="absolute inset-0" aria-hidden="true" />
-                              <p>Your monthly budget: 440€</p>
-                        </div>
-                    </h3>
+                    <router-link to="/stroski">
+<div class="rounded-lg p-6 flex items-center sm:p-10">
+                <div class="max-w-sm mx-auto text-center">
+                    <h3 class="font-semibold text-lg text-gray-900">Costs</h3>
+                    <p class="mt-6 text-2xl text-gray-500">Monthly budget: 912€ <div class="text-emerald-500">+3%</div></p>
+                </div>
+            </div>
+</router-link>
                 </div>
             </div>
         </div>
