@@ -10,24 +10,6 @@
                 <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">
                     Tvoja digitalna denarnica.
                 </p>
-                <div class="mt-8 flex justify-center">
-                    <div class="inline-flex rounded-md shadow">
-                        <a
-                            href="/denarnica"
-                            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700"
-                        >
-                            Denarnica
-                        </a>
-                    </div>
-                    <div class="ml-3 inline-flex">
-                        <a
-                            href="/dokumenti"
-                            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-emerald-700 bg-emerald-100 hover:bg-emerald-200"
-                        >
-                            Dokumenti
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="max-w-md mx-auto sm:max-w-3xl">
@@ -91,7 +73,7 @@
                             type="submit"
                             class="block w-full text-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
-                            Poveži
+                            <a href="/">Poveži</a>
                         </button>
                     </div>
                 </form>

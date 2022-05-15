@@ -11,24 +11,6 @@
                 </h2>
             </div>
         </div>
-        <div class="mt-8 flex justify-center pb-8">
-            <div class="inline-flex rounded-md shadow">
-                <a
-                    href="/stroski"
-                    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-                >
-                    Poraba
-                </a>
-            </div>
-            <div class="ml-3 inline-flex">
-                <a
-                    href="/nizji-stroski"
-                    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200"
-                >
-                    Znižaj stroške
-                </a>
-            </div>
-        </div>
         <div
             class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px"
         >
@@ -89,19 +71,14 @@
                     </span>
                 </div>
                 <div class="mt-8">
-                    <h3 class="text-lg font-medium">
-                        <div class="focus:outline-none">
-                            <!-- Extend touch target to entire panel -->
-                            <span class="absolute inset-0" aria-hidden="true" />
-                            <div id="chart">
-                                <apexchart
-                                    type="donut"
-                                    :options="chartOptions"
-                                    :series="series"
-                                ></apexchart>
-                            </div>
-                        </div>
-                    </h3>
+                    <router-link to="/stroski">
+<div class="rounded-lg p-6 flex items-center sm:p-10">
+                <div class="max-w-sm mx-auto text-center">
+                    <h3 class="font-semibold text-lg text-gray-900">Costs</h3>
+                    <p class="mt-6 text-2xl text-gray-500">Monthly budget: 912€ <div class="text-emerald-500">+3%</div></p>
+                </div>
+            </div>
+</router-link>
                 </div>
             </div>
         </div>
