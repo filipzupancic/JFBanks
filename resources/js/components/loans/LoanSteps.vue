@@ -24,22 +24,6 @@
                                 </router-link>
                             </div>
                         </li>
-                        <li v-for="page in pages" :key="page.name">
-                            <div class="flex items-center">
-                                <ChevronRightIcon
-                                    class="flex-shrink-0 h-5 w-5 text-gray-400"
-                                    aria-hidden="true"
-                                />
-                                <router-link
-                                    :to="page.href"
-                                    class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
-                                    :aria-current="
-                                        page.current ? 'page' : undefined
-                                    "
-                                    >{{ page.name }}</router-link
-                                >
-                            </div>
-                        </li>
                     </ol>
                 </nav>
                 <nav aria-label="Progress">
@@ -151,13 +135,13 @@
                         </button>
                     </div>
                     <div v-else style="float: right">
-                        <button
-                            @click="clickedOnFinished"
+                        <router-link
+                            to='/'
                             type="button"
                             class="button_green"
                         >
                             Zaključi
-                        </button>
+                        </router-link>
                     </div>
                     <div v-if="currentStep != 0" style="float: left">
                         <button
@@ -240,12 +224,12 @@ export default defineComponent({
         onMounted(() => {
             if (localStorage.getItem("LoanStep") !== null) {
                 currentStep.value = JSON.parse(localStorage.getItem("LoanStep"));
+                currentComponent.value=steps.value[currentStep.value].component
                 updateCircles();
             }
         });
         var currentComponent = ref(Calculator); //PREVERI ZAKAJ VRZE ERROR PRI CALCULATOR REACTIVE
         var currentStep = ref(0);
-        var finishedCondition = false;
         function updateCircles() {
             console.log(currentStep.value);
             for (var i = 0; i < steps.value.length; i++) {
@@ -297,8 +281,6 @@ export default defineComponent({
             console.log(steps.value);
         };
 
-        const clickedOnFinished = () => {};
-
         const finishedStatusClicked = (status) => {
             console.log(status);
             steps.value[currentStep.value].finished = true;
@@ -306,11 +288,9 @@ export default defineComponent({
         return {
             steps,
             pages,
-            finishedCondition,
             clickedCircleStep,
             currentComponent,
             currentStep,
-            clickedOnFinished,
             finishedStatusClicked,
             nextClicked,
             prevClicked,
