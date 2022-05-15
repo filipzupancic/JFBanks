@@ -1,10 +1,12 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-                    <h3 class="font-semibold text-lg text-gray-900">Eko</h3>
+                    <div style="align-items: center;text-align:center;">
+                    <h3 class="font-semibold text-lg text-gray-900">Save the planet</h3>
+                    </div>
                        <div class="py-8">
                         <apexchart
                           type="area"
-                          height="100"
+                          height="300"
                           :options="chartOptions"
                           :series="series"
                       ></apexchart>
@@ -67,7 +69,7 @@ export default defineComponent({
             chartOptions: {
                 chart: {
                     type: "area",
-                    height: 100,
+                    height: 300,
                     stacked: true,
                     events: {
                         selection: function (chart, e) {

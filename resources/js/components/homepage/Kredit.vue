@@ -1,50 +1,125 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    <li v-for="person in people" :key="person.email" class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
-      <div class="w-full flex items-center justify-between p-6 space-x-6">
-        <div class="flex-1 truncate">
-          <div class="flex items-center space-x-3">
-            <h3 class="text-gray-900 text-sm font-medium truncate">{{ person.name }}</h3>
-            <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">{{ person.role }}</span>
-          </div>
-          <p class="mt-1 text-gray-500 text-sm truncate">{{ person.title }}</p>
+<div class="rounded-lg p-6 flex items-center sm:p-10" >
+  <router-link to="/kredit/prvi-korak" style="align-items: center;text-align:center;" >
+        <div class="app__content">
+            <div class="content__radial">
+                <GradientProgress
+                    :diameter="diameter"
+                    :total-steps="totalSteps"
+                    :completed-steps="completedSteps"
+                    :animate-speed="animateSpeed"
+                    :stroke-width="strokeWidth"
+                    :inner-stroke-width="innerStrokeWidth"
+                    :stroke-linecap="round"
+                    :start-color="startColor"
+                    :stop-color="stopColor"
+                    :inner-stroke-color="innerStrokeColor"
+                    :timing-func="timingFunc"
+                    :is-clockwise="isClockwise"
+                >
+                    <div>
+                        <small>Loan Process </small>
+                        <span>{{ completedSteps }} / {{ totalSteps }}</span>
+                    </div>
+                </GradientProgress>
+            </div>
         </div>
-        <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" :src="person.imageUrl" alt="" />
-      </div>
-      <div>
-        <div class="-mt-px flex divide-x divide-gray-200">
-          <div class="w-0 flex-1 flex">
-            <a :href="`mailto:${person.email}`" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
-              <MailIcon class="w-5 h-5 text-gray-400" aria-hidden="true" />
-              <span class="ml-3">Email</span>
-            </a>
-          </div>
-          <div class="-ml-px w-0 flex-1 flex">
-            <a :href="`tel:${person.telephone}`" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
-              <PhoneIcon class="w-5 h-5 text-gray-400" aria-hidden="true" />
-              <span class="ml-3">Call</span>
-            </a>
-          </div>
+                   </router-link>
         </div>
-      </div>
-    </li>
-  </ul>
+ 
 </template>
 
-<script setup>
-import { MailIcon, PhoneIcon } from '@heroicons/vue/solid'
+<script>
+import GradientProgress from "vue3-radial-progress";
+import {defineComponent, ref, onMounted} from "vue"
+export default defineComponent({
 
-const people = [
-  {
-    name: 'Jane Cooper',
-    title: 'Regional Paradigm Technician',
-    role: 'Admin',
-    email: 'janecooper@example.com',
-    telephone: '+1-202-555-0170',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
-  },
-  // More people...
-]
+    data() {
+        return {
+            totalSteps: 5,
+            animateSpeed: 1000,
+            diameter: 300,
+            strokeWidth: 10,
+            innerStrokeWidth: 10,
+            strokeLinecap: "round",
+            startColor: "#00C58E",
+            stopColor: "#00E0A1",
+            innerStrokeColor: "#2F495E",
+            timingFunc: "linear",
+            isClockwise: true,
+        };
+    },
+    methods: {
+    },
+    components: {
+        GradientProgress,
+    },
+setup(){
+          const percentageRef = ref(0);
+          var completedSteps=ref(0);
+
+        const add = () => {
+            percentageRef.value += 10;
+            if (percentageRef.value > 100) {
+                percentageRef.value = 0;
+            }
+        };
+
+        const minus = () => {
+            percentageRef.value -= 10;
+            if (percentageRef.value < 0) {
+                percentageRef.value = 100;
+            }
+        };
+        onMounted(()=>{
+  if (localStorage.getItem("LoanStep") !== null) {
+            completedSteps.value=JSON.parse(localStorage.getItem("LoanStep"));
+        }
+
+          
+        })
+        return {
+            percentage: percentageRef,
+            add,
+            minus,
+            completedSteps,
+        };
+}
+
+
+
+});
 </script>
+
+<style scoped>
+
+.app__content {
+    padding: 1.5rem 2rem;
+    border-radius: 7px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.content__radial {
+    color: black;
+}
+
+.content__radial div:first-child {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content__radial div small {
+    font-size: 1.3rem;
+    margin-right: 5px;
+}
+
+.content__radial div span {
+    font-size: 2rem;
+}
+</style>

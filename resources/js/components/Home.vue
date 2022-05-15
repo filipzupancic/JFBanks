@@ -147,13 +147,13 @@
                     </div>
                 </div>
             </div>
-                <div class="content-center">
-                    <button @click="saveSlider();firstTimeVisitor=false; localStorage.setItem('FirstTimeVisitor', false);" type="button" class="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
+                <div class="content-center" style="align-items: center;text-align:center;">
+                    <button @click="saveSlider" type="button" class="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
                 </div>
         </div>
 
     <ul role="list" class="space-y-3">
-    <li v-for="(comp,idx) in selectedComponents" :key="idx" class="bg-white shadow overflow-hidden rounded-md px-6 py-4">
+    <li v-for="(comp,idx) in selectedComponents" :key="idx" style="align-items: center;text-align:center;" class="bg-white shadow overflow-hidden rounded-md px-6 py-4">
       <component :is="comp" ></component>
     </li>
     </ul>
@@ -344,6 +344,8 @@ var investValue=ref(0)
         
     })
 const saveSlider=()=>{
+firstTimeVisitor.value=false; 
+localStorage.setItem('FirstTimeVisitor', false);
 localStorage.setItem("Stroski", JSON.stringify(stroskiValue.value));
 localStorage.setItem("Eko", JSON.stringify(ekoValue.value));
 localStorage.setItem("Invest", JSON.stringify(investValue.value));

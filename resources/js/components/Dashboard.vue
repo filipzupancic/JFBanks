@@ -131,10 +131,11 @@
                     </div>
                 </div>
             </div>
-                <div class="content-center">
-                    <button @click="saveSlider;" type="button" class="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
+                <div class="content-center" style="align-items: center;text-align:center;">
+                    <button @click="saveSlider" type="button" class="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
                 </div>
         </div>
+
 </template>
 
 <script>
@@ -190,7 +191,7 @@ const saveSlider=()=>{
 localStorage.setItem("Stroski", JSON.stringify(stroskiValue.value));
 localStorage.setItem("Eko", JSON.stringify(ekoValue.value));
 localStorage.setItem("Invest", JSON.stringify(investValue.value));
-
+console.log("clicked")
 
 }
 const people = [
