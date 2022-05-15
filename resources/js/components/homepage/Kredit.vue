@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-<div class="rounded-lg p-6 flex items-center sm:p-10" >
+<div class="rounded-lg p-6 flex place-content-center sm:p-10" >
   <router-link to="/kredit/prvi-korak" style="align-items: center;text-align:center;" >
         <div class="app__content">
             <div class="content__radial">
