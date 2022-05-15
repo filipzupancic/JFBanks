@@ -329,10 +329,15 @@ var investValue=ref(0)
 
         const completedSteps = ref(0);
         const totalSteps = ref(10);
-        var selectedComponents=ref([]);
+        var selectedComponents=ref(["Investments","Eko","Kredit","Costs"]);
         var firstTimeVisitor=ref(true)
     onBeforeMount(()=>{
-        selectedComponents.value=JSON.parse(localStorage.getItem("SelectedComponents")); 
+            if (localStorage.getItem("SelectedComponents") !== null) {
+            selectedComponents.value=JSON.parse(localStorage.getItem("SelectedComponents")); 
+        }else{
+            localStorage.setItem("SelectedComponents", JSON.stringify(selectedComponents.value));
+        }
+        
         if (localStorage.getItem("FirstTimeVisitor") !== null) {
             firstTimeVisitor.value=(localStorage.getItem("FirstTimeVisitor") === 'true'); 
         }

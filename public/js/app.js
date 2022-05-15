@@ -26056,10 +26056,14 @@ var actions = [{
     var investValue = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0);
     var completedSteps = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0);
     var totalSteps = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(10);
-    var selectedComponents = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
+    var selectedComponents = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(["Investments", "Eko", "Kredit", "Costs"]);
     var firstTimeVisitor = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(true);
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.onBeforeMount)(function () {
-      selectedComponents.value = JSON.parse(localStorage.getItem("SelectedComponents"));
+      if (localStorage.getItem("SelectedComponents") !== null) {
+        selectedComponents.value = JSON.parse(localStorage.getItem("SelectedComponents"));
+      } else {
+        localStorage.setItem("SelectedComponents", JSON.stringify(selectedComponents.value));
+      }
 
       if (localStorage.getItem("FirstTimeVisitor") !== null) {
         firstTimeVisitor.value = localStorage.getItem("FirstTimeVisitor") === 'true';
