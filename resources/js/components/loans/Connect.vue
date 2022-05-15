@@ -1,9 +1,23 @@
 <template>
-    <div class="items-center text-center">
-    
-  BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-
+  <div class="bg-white">
+    <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-extrabold text-gray-900">All-in-one platform</h2>
+        <p class="mt-4 text-lg text-gray-500">Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla nec.</p>
+      </div>
+      <dl class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
+        <div v-for="feature in features" :key="feature.name" class="relative">
+          <dt>
+            <CheckIcon class="absolute h-6 w-6 text-green-500" aria-hidden="true" />
+            <p class="ml-9 text-lg leading-6 font-medium text-gray-900">{{ feature.name }}</p>
+          </dt>
+          <dd class="mt-2 ml-9 text-base text-gray-500">
+            {{ feature.description }}
+          </dd>
+        </div>
+      </dl>
     </div>
+  </div>
 </template>
 
 <script>
@@ -23,6 +37,25 @@ const steps = [
     { name: "Step 4", href: "/kredit/cetrti-korak", status: "upcoming" },
     { name: "Step 5", href: "/kredit/peti-korak", status: "upcoming" },
 ];
+
+const features = [
+  {
+    name: 'Open the new bank account',
+    description: 'Most of the banks require you to open a bank account.',
+  },
+  {
+    name: 'Take care of the insurance',
+    description: 'Life insurance, real-estate insurance. We can help you.',
+  },
+  {
+    name: 'Invest in a mutual fund and secure your future',
+    description: 'Invest in a mutual fund and secure your future.',
+  },
+  {
+    name: 'Follow the process.',
+    description: 'The process usually takes from 7 days to 1 months.',
+  },
+]
 
 export default defineComponent({
     data() {

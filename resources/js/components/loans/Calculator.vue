@@ -1,132 +1,85 @@
 <template>
-<div>
-<section class="hero is-info">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Compound Interest Calculator / Loan Payment Calculator // VueJS
-      </h1>
-    </div>
-  </div>
-</section>
-
-  <div class="container">
-    <p class="ins">
-    Enter your values to see your monthly payment, and grand total, and interest paid.
-    </p>
-
-      <div class="columns">
-  
-    <div class="column">    
-      <label>Principal Loan Amount</label>
-      <input class="input" type="number" v-on:blur="calc" v-model.number="loan.principal">
-    </div>
-    <div class="column">    
-      <label>Interest Rate</label>
-      <input class="input" type="text" v-on:blur="calc" v-model.number="loan.interest">
-    </div>
-    <div class="column">    
-      <label>Time in Years</label>
-      <input class="input" type="number" v-on:blur="calc" v-model.number="loan.timeYears">
-    </div>
-    <div class="column">    
-      <label>Compounded (months)</label>
-      <input class="input" type="number" v-on:blur="calc" v-model.number="loan.compoundingEvery">
-    </div>
-  </div>
-<button class="button is-info" v-on:click="calc">Compute</button>
-
-    <div class="columns">
-      <div class="column">
-        <div class="notification is-success">
-          <h3>Monthly Payment</h3>
-          <p>${{ formatPrice(loan.payment) }}</p>
+    <div class="pt-8 space-y-6 sm:pt-10 sm:space-y-5 text-center">
+        <div>
+            <h3 class="text-lg leading-6 font-medium text-gray-900">
+                <strong>Based on your preferences we'll help you get the best interest
+                rate on the market.</strong>
+            </h3>
         </div>
-      </div>
-      <div class="column">
-        <div class="notification is-warning">
-        <h3>Grand Total</h3>
-        <p>${{ formatPrice(loan.total) }}</p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="notification is-danger">
+        <div class="space-y-6 sm:space-y-5 text-center">
+            <p class="text-center py-8">How much money you need?</p>
+            <div class="mt-1 sm:mt-0 sm:col-span-2">
+                <n-space vertical>
+                    <n-slider
+                        v-model:value="value"
+                        range
+                        :marks="marks"
+                    />
+                </n-space>
+            </div>
 
-        <h3>Total Interest</h3>
-        <p>${{ formatPrice(loan.totalInterest) }}</p>
+            <p class="text-center py-8">How much money you need?</p>
+            <div class="mt-1 sm:mt-0 sm:col-span-2">
+                <n-space vertical>
+                    <n-slider
+                        v-model:value="value"
+                        range
+                        :marks="marks"
+                    />
+                </n-space>
+            </div>
+
+            <div
+                class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5"
+            >
+                <label
+                    for="country"
+                    class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                >
+                    What do you want to buy?
+                </label>
+                <div class="mt-1 sm:mt-0 sm:col-span-2">
+                    <select
+                        id="country"
+                        name="country"
+                        autocomplete="country-name"
+                        class="max-w-lg block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md"
+                    >
+                        <option>House</option>
+                        <option>Appartment</option>
+                        <option>Land</option>
+                        <option>Car</option>
+                        <option>Solar panels</option>
+                    </select>
+                </div>
+            </div>
         </div>
-        </div>
-      </div>
     </div>
-</div>
-
 </template>
 
 <script>
 import { ref, defineComponent } from "vue";
 import { CheckIcon } from "@heroicons/vue/solid";
-import { ChevronRightIcon, HomeIcon } from '@heroicons/vue/solid'
+import { ChevronRightIcon, HomeIcon } from "@heroicons/vue/solid";
+import { NSpace, NSlider, NInputNumber } from "naive-ui";
 
-export default defineComponent({
-   emits: ["finishedStatusEvent"],
-  data() {
-    return{
-    loan: {
-      principal: 300000,
-      interest: .0299,
-      compoundingEvery: 12,
-      timeYears: 15,
-      payment: 0,
-      total: 0,
-      totalInterest: 0,
-      l: 0,
-      r: 0
+export default({
+    data() {
+        return {};
     },
-
-
-    }
-  },
-  methods: {
-    calc: function () {
-      this.loan.l =  this.loan.principal*((1+ (this.loan.interest/this.loan.compoundingEvery))**(this.loan.compoundingEvery*this.loan.timeYears));
-      this.loan.r = (((1+ (this.loan.interest/this.loan.compoundingEvery))**(this.loan.compoundingEvery*this.loan.timeYears))-1)/(this.loan.interest/this.loan.compoundingEvery);
-      this.loan.payment = Math.round(this.loan.l / this.loan.r * 100) /100 ;
-      this.loan.total = Math.round(this.loan.payment * this.loan.compoundingEvery*this.loan.timeYears  * 100) /100 ;
-      this.loan.totalInterest = Math.round((this.loan.total - this.loan.principal )  * 100) /100 ;    
-      this.$emit('finishedStatusEvent', true)
-    },
-    formatPrice(value) {
-        let val = (value/1).toFixed(2);
-        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-  },
     components: {
-        CheckIcon,
-        ChevronRightIcon,
-        HomeIcon,
+        NSpace,
+        NSlider,
+        NInputNumber,
     },
-
+    setup () {
+    return {
+      value: ref([50, 70]),
+      marks: {
+        0: '0$',
+        100: '1M$',
+      }
+    }
+  }
 });
 </script>
-
-<style>
-label {
-  color: #aaa;
-}
-input, button, label, p {
-  margin-bottom: .5em;
-}
-.columns p {
-  font-weight: bold;
-  line-height: 40px;
-}
-.columns{
-  margin-top: 1em;
-}
-.ins {
-  margin-top: 2em;
-}
-.hero {
-  padding-top: 5vh;
-}
-</style>
