@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-md mx-auto sm:max-w-3xl">
+  <div class="max-w-md mx-auto sm:max-w-3xl py-12">
     <div>
       <div class="text-center">
         <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
@@ -66,5 +66,6 @@ const people = [
     imageUrl:
       'https://storage.googleapis.com/coworking_images/JFBank/profits.png',
   },
-]
+];
+
 </script>

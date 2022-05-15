@@ -17,6 +17,22 @@
         </div>
       </div>
     </div>
+    
+  
+    <!-- <div class="py-4 flex flex-wrap justify-center space-x-6 lg-hidden">
+        <a href="/kredit" class="text-base font-medium text-blue-500 hover:text-indigo-50">
+          LOANS
+        </a>
+        <a href="/stroki" class="text-base font-medium text-blue-500 hover:text-indigo-50">
+          COSTS
+        </a>
+        <a href="/nalozbe" class="text-base font-medium text-blue-500 hover:text-indigo-50">
+          INVESTMENTS
+        </a>
+        <a href="/eko" class="text-base font-medium text-blue-500 hover:text-indigo-50">
+          PLANET
+        </a>
+      </div> -->
 
     <transition enter-active-class="duration-200 ease-out" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
       <PopoverPanel focus class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right">
@@ -115,7 +131,7 @@ const solutions = [
     name: 'Wallet',
     description: 'Build strategic funnels that will drive your customers to convert',
     href: '/denarnica',
-    icon: RefreshIcon,
+    icon: CashIcon,
   },
 ]
 const callsToAction = [

@@ -109,7 +109,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style>
 label {
   color: #aaa;
 }
