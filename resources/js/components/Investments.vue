@@ -52,7 +52,7 @@
                         </router-link>
                     </h3>
                     <p class="mt-2 text-sm text-gray-500">
-                        JFBanks finds the best investments for you.
+                        finbit finds the best investments for you.
                     </p>
                 </div>
                 <span

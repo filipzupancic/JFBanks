@@ -65,8 +65,8 @@ var steps = [{
     return {
       participants: [{
         id: "user1",
-        name: "AI JFBanks",
-        imageUrl: "https://www.dropbox.com/s/6ggs6yqmcwcx4i6/JFBanks-logo.jpeg?raw=1"
+        name: "AI finbit",
+        imageUrl: "https://www.dropbox.com/s/6ggs6yqmcwcx4i6/finbit-logo.jpeg?raw=1"
       }],
       // the list of all the participant of the conversation. `name` is the user name, `id` is used to establish the author of a message, `imageUrl` is supposed to be the user avatar.
       titleImageUrl: "https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png",

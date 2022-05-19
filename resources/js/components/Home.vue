@@ -5,7 +5,7 @@
                 <p
                     class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl"
                 >
-                    Johnny F. Banks
+                    finbit
                 </p>
                 <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">
                     At your service.
@@ -15,7 +15,9 @@
         <div class="lg:grid lg:grid-cols-2 py-16 lg:gap-x-6 xl:gap-x-8">
             <div class="bg-gray-100 rounded-lg p-6 flex items-center sm:p-10">
                 <div class="max-w-sm mx-auto text-center">
-                    <h3 class="font-semibold text-lg text-gray-900">Tvoja sredstva</h3>
+                    <h3 class="font-semibold text-lg text-gray-900">
+                        Tvoja sredstva
+                    </h3>
                     <p class="mt-6 text-2xl text-emerald-500">2,000,000,00 €</p>
                 </div>
             </div>
@@ -51,7 +53,10 @@
             </div>
         </div>
 
-        <div v-if="firstTimeVisitor" class="relative bg-white py-16 sm:py-12 lg:py-16">
+        <div
+            v-if="firstTimeVisitor"
+            class="relative bg-white py-16 sm:py-12 lg:py-16"
+        >
             <div
                 class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8"
             >
@@ -87,7 +92,7 @@
                             </div>
                         </div>
 
-                        <div  class="flow-root rounded-lg bg-gray-50 px-6 pb-8">
+                        <div class="flow-root rounded-lg bg-gray-50 px-6 pb-8">
                             <div class="-mt-6">
                                 <div>
                                     <span
@@ -112,7 +117,6 @@
                                         step="mark"
                                     />
                                 </n-space>
-
                             </div>
                         </div>
 
@@ -143,31 +147,42 @@
                                 </n-space>
                             </div>
                         </div>
-
-      
                     </div>
                 </div>
             </div>
-                <div class="content-center" style="align-items: center;text-align:center;">
-                    <button @click="saveSlider" type="button" class="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
-                </div>
+            <div
+                class="content-center"
+                style="align-items: center; text-align: center"
+            >
+                <button
+                    @click="saveSlider"
+                    type="button"
+                    class="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                    Save
+                </button>
+            </div>
         </div>
 
-    <ul role="list" class="space-y-3">
-    <li v-for="(comp,idx) in selectedComponents" :key="idx" style="align-items: center;text-align:center;" class="bg-white shadow overflow-hidden rounded-md px-6 py-4">
-      <component :is="comp" ></component>
-    </li>
-    </ul>
-
-</div>
+        <ul role="list" class="space-y-3">
+            <li
+                v-for="(comp, idx) in selectedComponents"
+                :key="idx"
+                style="align-items: center; text-align: center"
+                class="bg-white shadow overflow-hidden rounded-md px-6 py-4"
+            >
+                <component :is="comp"></component>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
-import { ref,reactive, defineComponent, onMounted,onBeforeMount } from "vue";
-import Investments from "./homepage/Investments"
-import Kredit from "./homepage/Kredit"
-import Eko from "./homepage/Eko"
-import Costs from "./homepage/Costs"
+import { ref, reactive, defineComponent, onMounted, onBeforeMount } from "vue";
+import Investments from "./homepage/Investments";
+import Kredit from "./homepage/Kredit";
+import Eko from "./homepage/Eko";
+import Costs from "./homepage/Costs";
 import { NSpace, NSlider } from "naive-ui";
 import {
     BadgeCheckIcon,
@@ -182,7 +197,7 @@ const actions = [
     {
         title: "Hitro in ugodno do kredita.",
         content:
-            "JFBanks te pelje čez celoten proces pridobivanja stanovanjskega posojila, od izračuna kreditne sposobnosti in pridobivanja najboljše obrestne mere, do podpisa pogodbe.",
+            "finbit te pelje čez celoten proces pridobivanja stanovanjskega posojila, od izračuna kreditne sposobnosti in pridobivanja najboljše obrestne mere, do podpisa pogodbe.",
         href: "/kredit",
         icon: ClockIcon,
         iconForeground: "text-teal-700",
@@ -208,7 +223,7 @@ const actions = [
     {
         title: "Eko se splača.",
         content:
-            "Skrb za naš planet ni več zgolj dobrodelnost, ampak se dejansko splača. JFBanks ti pomaga razumeti tvoj ogljični odtis in svetuje, kako ga lahko zmanjšaš in hkrati prihraniš.",
+            "Skrb za naš planet ni več zgolj dobrodelnost, ampak se dejansko splača. finbit ti pomaga razumeti tvoj ogljični odtis in svetuje, kako ga lahko zmanjšaš in hkrati prihraniš.",
         href: "/eko",
         icon: GlobeIcon,
         iconForeground: "text-emerald-700",
@@ -217,7 +232,7 @@ const actions = [
     {
         title: "Digitalna denarnica.",
         content:
-            "JFBanks ti omogoča, da preprosto povežeš vse bančne račune in digitalno denarnico na enem mestu.",
+            "finbit ti omogoča, da preprosto povežeš vse bančne račune in digitalno denarnico na enem mestu.",
         href: "/denarnica",
         icon: DocumentTextIcon,
         iconForeground: "text-yellow-700",
@@ -226,7 +241,7 @@ const actions = [
     {
         title: "Osebni svetovalec vedno pri roki",
         content:
-            "JFBanks je vedno na voljo za vprašanja na temo financ, lahko pa te tudi hitro poveže z bančnih uslužbencem.",
+            "finbit je vedno na voljo za vprašanja na temo financ, lahko pa te tudi hitro poveže z bančnih uslužbencem.",
         href: "/obvestila",
         icon: UsersIcon,
         iconForeground: "text-sky-700",
@@ -236,13 +251,9 @@ const actions = [
 
 export default defineComponent({
     data() {
-        return {
-           
-        };
+        return {};
     },
-    methods: {
-        
-    },
+    methods: {},
     components: {
         NSpace,
         Investments,
@@ -255,44 +266,44 @@ export default defineComponent({
         BadgeCheckIcon,
     },
     setup() {
+        var stroskiValue = ref(0);
+        var ekoValue = ref(0);
 
-
-         var stroskiValue= ref(0)
-var ekoValue= ref(0)
-              
-
-var investValue=ref(0)
+        var investValue = ref(0);
 
         const completedSteps = ref(0);
         const totalSteps = ref(10);
-        var selectedComponents=ref(["Investments","Eko","Kredit","Costs"]);
-        var firstTimeVisitor=ref(true)
-    onBeforeMount(()=>{
+        var selectedComponents = ref(["Investments", "Eko", "Kredit", "Costs"]);
+        var firstTimeVisitor = ref(true);
+        onBeforeMount(() => {
             if (localStorage.getItem("SelectedComponents") !== null) {
-            selectedComponents.value=JSON.parse(localStorage.getItem("SelectedComponents")); 
-        }else{
-            localStorage.setItem("SelectedComponents", JSON.stringify(selectedComponents.value));
-        }
-        
-        if (localStorage.getItem("FirstTimeVisitor") !== null) {
-            firstTimeVisitor.value=(localStorage.getItem("FirstTimeVisitor") === 'true'); 
-        }
-        
-    })
-const saveSlider=()=>{
-firstTimeVisitor.value=false; 
-localStorage.setItem('FirstTimeVisitor', false);
-localStorage.setItem("Stroski", JSON.stringify(stroskiValue.value));
-localStorage.setItem("Eko", JSON.stringify(ekoValue.value));
-localStorage.setItem("Invest", JSON.stringify(investValue.value));
+                selectedComponents.value = JSON.parse(
+                    localStorage.getItem("SelectedComponents")
+                );
+            } else {
+                localStorage.setItem(
+                    "SelectedComponents",
+                    JSON.stringify(selectedComponents.value)
+                );
+            }
 
-
-}
-    return {
-        stroskiValue,
-        ekoValue,
-        investValue,
-        saveSlider,
+            if (localStorage.getItem("FirstTimeVisitor") !== null) {
+                firstTimeVisitor.value =
+                    localStorage.getItem("FirstTimeVisitor") === "true";
+            }
+        });
+        const saveSlider = () => {
+            firstTimeVisitor.value = false;
+            localStorage.setItem("FirstTimeVisitor", false);
+            localStorage.setItem("Stroski", JSON.stringify(stroskiValue.value));
+            localStorage.setItem("Eko", JSON.stringify(ekoValue.value));
+            localStorage.setItem("Invest", JSON.stringify(investValue.value));
+        };
+        return {
+            stroskiValue,
+            ekoValue,
+            investValue,
+            saveSlider,
             firstTimeVisitor,
             localStorage,
             completedSteps,
@@ -319,8 +330,6 @@ localStorage.setItem("Invest", JSON.stringify(investValue.value));
             },
         };
     },
-
-
 });
 </script>
 
@@ -333,16 +342,17 @@ localStorage.setItem("Invest", JSON.stringify(investValue.value));
 }
 
 .button_blue {
-  background-color: #89CFF0; /* Blue */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+    background-color: #89cff0; /* Blue */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
 .button_blue:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+        0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 </style>
