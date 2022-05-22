@@ -191,9 +191,11 @@
             </button>
         </div>
     </div>
+    <dragable-page v-model:list="selectedComponents"  class="place-content-center"></dragable-page>
 </template>
 
 <script>
+import DragablePage from './homepage/DragablePage'
 import { NSpace, NSlider } from "naive-ui";
 import {
     PlusIcon,
@@ -210,6 +212,7 @@ export default defineComponent({
     components: {
         NSpace,
         NSlider,
+        "dragable-page":DragablePage,
     },
     setup() {
         var stroskiValue = ref(0);

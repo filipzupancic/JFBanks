@@ -1,17 +1,18 @@
 <template>
 <div>
-<Header style="z-index: 100;"></Header>
+<Header v-if="!modalsActive" style="z-index: 100;"></Header>
 </div>
 <div>
-        <router-view> </router-view>
+        <router-view @modalsChange="modalsChange"> </router-view>
 </div>
+<div id="modals"></div>
 <div>
-        <bottom-chat></bottom-chat>
+        <bottom-chat  v-if="!modalsActive"></bottom-chat>
 </div>
 </template>
  
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import BottomChat from './BottomChat'
 import Header from "./Header";
 
@@ -26,11 +27,15 @@ import Header from "./Header";
             Header,
         },
         setup(){
-            return{
+            var modalsActive=ref(false);
 
-                
+            const modalsChange=(active)=>{
+                modalsActive.value=active;
+            }
+            return{
+            modalsChange,
+            modalsActive
             }
         }
-
     })
 </script>

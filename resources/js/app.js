@@ -23,6 +23,8 @@ import Wallet from './components/Wallet'
 import HistogramSlider from "vue3-histogram-slider";
 import LoanSteps from "./components/loans/LoanSteps"
 import "vue3-histogram-slider/dist/histogram-slider.css";
+import 'vue-universal-modal/dist/index.css'
+import VueUniversalModal from 'vue-universal-modal'
 
 createApp({
     render: () => (
@@ -46,6 +48,7 @@ createApp({
 })
 .use(router)
 .use(Chat)
+.use(VueUniversalModal,{teleportTarget:"#modals"})
 .use(RadialProgressBar)
 .use(VueApexCharts)
 .component(HistogramSlider.name, HistogramSlider)
