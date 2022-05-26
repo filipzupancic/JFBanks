@@ -10,7 +10,11 @@
                 <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">
                     At your service.
                 </p>
+            <button @click="showModal" type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Customize
+            </button>
             </div>
+
         </div>
         <div class="lg:grid lg:grid-cols-2 py-16 lg:gap-x-6 xl:gap-x-8">
             <div class="bg-gray-100 rounded-lg p-6 flex items-center sm:p-10">
@@ -175,6 +179,23 @@
             </li>
         </ul>
     </div>
+
+    <Modal
+    v-model="isShow"
+    :close="closeModal"
+    @before-enter="beforeEnter"
+    @after-enter="afterEnter"
+    @before-leave="beforeLeave"
+    @after-leave="afterLeave"
+  >
+    <div class="modal">
+    <dragable-page v-model:list="selectedComponents"></dragable-page>
+      <button @click="closeModal">
+        close
+      </button>
+    </div>
+  </Modal>
+
 </template>
 
 <script>
@@ -183,6 +204,7 @@ import Investments from "./homepage/Investments";
 import Kredit from "./homepage/Kredit";
 import Eko from "./homepage/Eko";
 import Costs from "./homepage/Costs";
+import DragablePage from './homepage/DragablePage'
 import { NSpace, NSlider } from "naive-ui";
 import {
     BadgeCheckIcon,
@@ -253,6 +275,7 @@ export default defineComponent({
     data() {
         return {};
     },
+    emits:["modalsChange"],
     methods: {},
     components: {
         NSpace,
@@ -264,8 +287,9 @@ export default defineComponent({
         CashIcon,
         GlobeIcon,
         BadgeCheckIcon,
+        "dragable-page":DragablePage,
     },
-    setup() {
+    setup(props,{emit}) {
         var stroskiValue = ref(0);
         var ekoValue = ref(0);
 
@@ -299,7 +323,52 @@ export default defineComponent({
             localStorage.setItem("Eko", JSON.stringify(ekoValue.value));
             localStorage.setItem("Invest", JSON.stringify(investValue.value));
         };
+
+
+    const isShow = ref(false)
+
+    function showModal () {
+      isShow.value = true
+      console.log(isShow.value)
+    }
+
+    function closeModal () {
+      isShow.value = false
+    }
+
+    function beforeEnter () {
+      console.log('before enter')
+        emit("modalsChange",true)
+    }
+
+    function afterEnter () {
+      console.log('after enter')
+   
+    }
+
+    function beforeLeave () {
+      console.log('before leave')
+      emit("modalsChange",false)
+    }
+
+    function afterLeave () {
+      console.log('after leave')
+        localStorage.setItem(
+        "SelectedComponents",
+        JSON.stringify(selectedComponents.value)
+        );
+        
+    }
+
+
         return {
+            isShow,
+            showModal,
+            closeModal,
+            beforeEnter,
+            afterEnter,
+            beforeLeave,
+            afterLeave,
             stroskiValue,
             ekoValue,
             investValue,
@@ -340,19 +409,12 @@ export default defineComponent({
     flex-direction: column;
     align-items: center;
 }
-
-.button_blue {
-    background-color: #89cff0; /* Blue */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-.button_blue:hover {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-        0 17px 50px 0 rgba(0, 0, 0, 0.19);
+.modal {
+  width: 50vw;
+  padding: 30px;
+  box-sizing: border-box;
+  background-color: #fff;
+  font-size: 20px;
+  text-align: center;
 }
 </style>
