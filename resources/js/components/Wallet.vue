@@ -56,14 +56,14 @@
                 </h3>
                 <ul role="list" class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <li v-for="(bank, bankIdx) in banks" :key="bankIdx">
-                        <button type="button" @click="bankSelected"
+                        <button type="button" @click="bankSelected(bank)"
                             class="group p-2 w-full flex items-center justify-between rounded-full border border-gray-300 shadow-sm space-x-3 text-left hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             <span class="min-w-0 flex-1 flex items-center space-x-3">
                                 <span class="block flex-shrink-0">
                                     <img class="h-10 w-10 rounded-full" :src="bank.imageUrl" alt="" />
                                 </span>
                                 <span class="block min-w-0 flex-1">
-                                    <span @click="bankSelected"
+                                    <span
                                         class="block text-sm font-medium text-gray-900 truncate">{{ bank.name }}</span>
                                 </span>
                             </span>
@@ -112,9 +112,9 @@ export default defineComponent({
         return {};
     },
     methods: {
-        bankSelected: function () {
-            document.getElementById("banks").value = "Sparkasse";
-            console.log("Button clicked");
+        bankSelected: function (e) {
+            document.getElementById("banks").value = e.name;
+            console.log(e.name);
         },
     },
     components: {
