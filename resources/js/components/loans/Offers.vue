@@ -193,7 +193,7 @@ const recentPosts = [
 ];
 const tiers = [
     {
-        name: "NLB",
+        name: "Paket 1",
         href: "#",
         priceMonthly: 1.8,
         description:
@@ -204,7 +204,7 @@ const tiers = [
         ],
     },
     {
-        name: "Sparkasse",
+        name: "Paket 2",
         href: "#",
         priceMonthly: 1.9,
         description:
@@ -215,7 +215,7 @@ const tiers = [
         ],
     },
     {
-        name: "SKB",
+        name: "Paket 3",
         href: "#",
         priceMonthly: 1.9,
         description:
@@ -226,7 +226,7 @@ const tiers = [
         ],
     },
     {
-        name: "Delavska hranilnica",
+        name: "Paket 4",
         href: "#",
         priceMonthly: 2.2,
         description:

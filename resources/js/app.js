@@ -26,6 +26,7 @@ import "vue3-histogram-slider/dist/histogram-slider.css";
 import 'vue-universal-modal/dist/index.css'
 import VueUniversalModal from 'vue-universal-modal'
 
+
 createApp({
     render: () => (
       h(App)

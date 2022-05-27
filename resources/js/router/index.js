@@ -14,6 +14,7 @@ import EditDocument from '../components/documents/EditDocument'
 import LoanSteps from '../components/loans/LoanSteps'
 import Calendar from '../components/Calendar'
 import Wallet from '../components/Wallet'
+import AdminPage from '../components/admin_page/AdminPage'
 
 const routes = [
     {
@@ -91,7 +92,13 @@ const routes = [
         name: 'documents.edit',
         component: EditDocument,
         props: true
-    }
+    },
+    {
+        path: '/admin',
+        name: 'admin',
+        component: AdminPage
+    },
+    
 ]
 
 export default createRouter({
