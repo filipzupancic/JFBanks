@@ -3,6 +3,7 @@ require('./bootstrap');
 require('alpinejs');
 
 import { h, createApp, Vue } from "vue"
+import axios from 'axios'
 import App from './components/App'
 import Chat from "vue3-beautiful-chat"
 import RadialProgressBar from "vue3-radial-progress"
@@ -22,11 +23,13 @@ import Calendar from './components/Calendar'
 import Wallet from './components/Wallet'
 import HistogramSlider from "vue3-histogram-slider";
 import LoanSteps from "./components/loans/LoanSteps"
+import Login from "./components/users/Login";
+import Register from "./components/users/Register";
 import "vue3-histogram-slider/dist/histogram-slider.css";
 import 'vue-universal-modal/dist/index.css'
 import VueUniversalModal from 'vue-universal-modal'
 
-createApp({
+const app = createApp({
     render: () => (
       h(App)
     ),
@@ -44,12 +47,15 @@ createApp({
         Costs2Action,
         Calendar,
         Wallet,
+        Register,
+        Login,
     },
 })
-.use(router)
-.use(Chat)
-.use(VueUniversalModal,{teleportTarget:"#modals"})
-.use(RadialProgressBar)
-.use(VueApexCharts)
-.component(HistogramSlider.name, HistogramSlider)
-.mount('#app')
+app.config.globalProperties.$axios = axios;
+app.use(router)
+app.use(Chat)
+app.use(VueUniversalModal,{teleportTarget:"#modals"})
+app.use(RadialProgressBar)
+app.use(VueApexCharts)
+app.component(HistogramSlider.name, HistogramSlider)
+app.mount('#app')

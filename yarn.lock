@@ -1482,6 +1482,16 @@
     "estree-walker" "^2.0.2"
     "source-map" "^0.6.1"
 
+"@vue/compiler-core@3.2.36":
+  "integrity" "sha512-bbyZM5hvBicv0PW3KUfVi+x3ylHnfKG7DOn5wM+f2OztTzTjLEyBb/5yrarIYpmnGitVGbjZqDbODyW4iK8hqw=="
+  "resolved" "https://registry.npmjs.org/@vue/compiler-core/-/compiler-core-3.2.36.tgz"
+  "version" "3.2.36"
+  dependencies:
+    "@babel/parser" "^7.16.4"
+    "@vue/shared" "3.2.36"
+    "estree-walker" "^2.0.2"
+    "source-map" "^0.6.1"
+
 "@vue/compiler-dom@3.2.33":
   "integrity" "sha512-GhiG1C8X98Xz9QUX/RlA6/kgPBWJkjq0Rq6//5XTAGSYrTMBgcLpP9+CnlUg1TFxnnCVughAG+KZl28XJqw8uQ=="
   "resolved" "https://registry.npmjs.org/@vue/compiler-dom/-/compiler-dom-3.2.33.tgz"
@@ -1489,6 +1499,30 @@
   dependencies:
     "@vue/compiler-core" "3.2.33"
     "@vue/shared" "3.2.33"
+
+"@vue/compiler-dom@3.2.36":
+  "integrity" "sha512-tcOTAOiW4s24QLnq+ON6J+GRONXJ+A/mqKCORi0LSlIh8XQlNnlm24y8xIL8la+ZDgkdbjarQ9ZqYSvEja6gVA=="
+  "resolved" "https://registry.npmjs.org/@vue/compiler-dom/-/compiler-dom-3.2.36.tgz"
+  "version" "3.2.36"
+  dependencies:
+    "@vue/compiler-core" "3.2.36"
+    "@vue/shared" "3.2.36"
+
+"@vue/compiler-sfc@^3.2.36":
+  "integrity" "sha512-AvGb4bTj4W8uQ4BqaSxo7UwTEqX5utdRSMyHy58OragWlt8nEACQ9mIeQh3K4di4/SX+41+pJrLIY01lHAOFOA=="
+  "resolved" "https://registry.npmjs.org/@vue/compiler-sfc/-/compiler-sfc-3.2.36.tgz"
+  "version" "3.2.36"
+  dependencies:
+    "@babel/parser" "^7.16.4"
+    "@vue/compiler-core" "3.2.36"
+    "@vue/compiler-dom" "3.2.36"
+    "@vue/compiler-ssr" "3.2.36"
+    "@vue/reactivity-transform" "3.2.36"
+    "@vue/shared" "3.2.36"
+    "estree-walker" "^2.0.2"
+    "magic-string" "^0.25.7"
+    "postcss" "^8.1.10"
+    "source-map" "^0.6.1"
 
 "@vue/compiler-sfc@3.2.33":
   "integrity" "sha512-H8D0WqagCr295pQjUYyO8P3IejM3vEzeCO1apzByAEaAR/WimhMYczHfZVvlCE/9yBaEu/eu9RdiWr0kF8b71Q=="
@@ -1514,6 +1548,14 @@
     "@vue/compiler-dom" "3.2.33"
     "@vue/shared" "3.2.33"
 
+"@vue/compiler-ssr@3.2.36":
+  "integrity" "sha512-+KugInUFRvOxEdLkZwE+W43BqHyhBh0jpYXhmqw1xGq2dmE6J9eZ8UUSOKNhdHtQ/iNLWWeK/wPZkVLUf3YGaw=="
+  "resolved" "https://registry.npmjs.org/@vue/compiler-ssr/-/compiler-ssr-3.2.36.tgz"
+  "version" "3.2.36"
+  dependencies:
+    "@vue/compiler-dom" "3.2.36"
+    "@vue/shared" "3.2.36"
+
 "@vue/devtools-api@^6.0.0":
   "integrity" "sha512-IiA0SvDrJEgXvVxjNkHPFfDx6SXw0b/TUkqMcDZWNg9fnCAHbTpoo59YfJ9QLFkwa3raau5vSlRVzMSLDnfdtQ=="
   "resolved" "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.1.4.tgz"
@@ -1527,6 +1569,17 @@
     "@babel/parser" "^7.16.4"
     "@vue/compiler-core" "3.2.33"
     "@vue/shared" "3.2.33"
+    "estree-walker" "^2.0.2"
+    "magic-string" "^0.25.7"
+
+"@vue/reactivity-transform@3.2.36":
+  "integrity" "sha512-Jk5o2BhpODC9XTA7o4EL8hSJ4JyrFWErLtClG3NH8wDS7ri9jBDWxI7/549T7JY9uilKsaNM+4pJASLj5dtRwA=="
+  "resolved" "https://registry.npmjs.org/@vue/reactivity-transform/-/reactivity-transform-3.2.36.tgz"
+  "version" "3.2.36"
+  dependencies:
+    "@babel/parser" "^7.16.4"
+    "@vue/compiler-core" "3.2.36"
+    "@vue/shared" "3.2.36"
     "estree-walker" "^2.0.2"
     "magic-string" "^0.25.7"
 
@@ -1578,6 +1631,11 @@
   "integrity" "sha512-UBc1Pg1T3yZ97vsA2ueER0F6GbJebLHYlEi4ou1H5YL4KWvMOOWwpYo9/QpWq93wxKG6Wo13IY74Hcn/f7c7Bg=="
   "resolved" "https://registry.npmjs.org/@vue/shared/-/shared-3.2.33.tgz"
   "version" "3.2.33"
+
+"@vue/shared@3.2.36":
+  "integrity" "sha512-JtB41wXl7Au3+Nl3gD16Cfpj7k/6aCroZ6BbOiCMFCMvrOpkg/qQUXTso2XowaNqBbnkuGHurLAqkLBxNGc1hQ=="
+  "resolved" "https://registry.npmjs.org/@vue/shared/-/shared-3.2.36.tgz"
+  "version" "3.2.36"
 
 "@webassemblyjs/ast@1.11.1":
   "integrity" "sha512-ukBh14qFLjxTQNTXocdyksN5QdM28S1CxHt2rdskFyL+xFV7VremuBLVbmCePj+URalXBENx/9Lm7lnhihtCSw=="
@@ -7852,7 +7910,7 @@
   "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz"
   "version" "2.6.14"
 
-"vue@^3.0.0", "vue@^3.0.0-0", "vue@^3.0.1", "vue@^3.0.11", "vue@^3.0.5", "vue@^3.1.0", "vue@^3.2.0", "vue@^3.2.31", "vue@> 3.0.0", "vue@>= 3", "vue@3.2.33":
+"vue@^3.0.0", "vue@^3.0.0-0", "vue@^3.0.1", "vue@^3.0.11", "vue@^3.0.5", "vue@^3.1.0", "vue@^3.2.0", "vue@^3.2.33", "vue@> 3.0.0", "vue@>= 3", "vue@3.2.33":
   "integrity" "sha512-si1ExAlDUrLSIg/V7D/GgA4twJwfsfgG+t9w10z38HhL/HA07132pUQ2KuwAo8qbCyMJ9e6OqrmWrOCr+jW7ZQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.2.33.tgz"
   "version" "3.2.33"

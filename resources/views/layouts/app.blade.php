@@ -23,24 +23,29 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 </head>
+<body>
+
 @if (Auth::check())
-<meta name="user_id" content="{{ Auth::user()->id }}" />
+    @php
+    $user_auth_data = [
+        'isLoggedin' => true,
+        'user' =>  Auth::user()
+    ];
+    @endphp
+@else
+    @php
+    $user_auth_data = [
+        'isLoggedin' => false
+    ];
+    @endphp
 @endif
+<script>
+    window.Laravel = JSON.parse(atob('{{ base64_encode(json_encode($user_auth_data)) }}'));
+</script>
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen">
-        <!-- Page Heading -->
-        <header>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {{ $header }}
-            </div>
-        </header>
-
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
-    </div>
+<div id="app">
+</div>
+<script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
 </body>
 @include('layouts.footer')
 

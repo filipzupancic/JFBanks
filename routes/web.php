@@ -22,4 +22,4 @@ Route::get('/{any?}', [
 
 
 //Auth::routes();
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';

@@ -11,9 +11,12 @@ import Notifications from '../components/Notifications'
 import Documents from '../components/Documents'
 import AddDocument from '../components/documents/AddDocument'
 import EditDocument from '../components/documents/EditDocument'
+import Register from "../components/users/Register"
+import Login from "../components/users/Login"
 import LoanSteps from '../components/loans/LoanSteps'
 import Calendar from '../components/Calendar'
 import Wallet from '../components/Wallet'
+import AdminDashboard from '../components/'
 
 const routes = [
     {
@@ -91,7 +94,17 @@ const routes = [
         name: 'documents.edit',
         component: EditDocument,
         props: true
-    }
+    },
+    {
+        name: "register",
+        path: "/register",
+        component: Register,
+    },
+    {
+        name: "login",
+        path: "/login",
+        component: Login,
+    },
 ]
 
 export default createRouter({

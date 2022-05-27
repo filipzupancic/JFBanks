@@ -3,14 +3,14 @@
       <draggable
         :list="list"
         item-key="name"
-        class="w-full text-lg font-large text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+        class="w-full text-lg font-large text-gray-900 bg-white rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
         ghost-class="ghost"
         :move="checkMove"
         @start="dragging = true"
         @end="dragging = false"
       >
         <template #item="{ element }">
-          <div  class="group p-2 w-full flex items-center justify-between rounded-full border border-gray-300 shadow-sm space-x-3 text-left hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <div  class="group p-2 w-full flex items-center justify-between rounded-full border border-gray-300 shadow-sm space-x-3 text-left hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
             {{ element }}
             <div @click="remove(element)" class="relative">
                 <div class="absolute inset-y-0 right-0 w-16 ...">X</div>
@@ -26,7 +26,7 @@
                 style="align-items: center; text-align: center"
                 class="bg-white shadow overflow-hidden rounded-md px-6 py-4"
             >
-                  <div @click="add(comp)" class="group p-2 w-full flex items-center justify-between rounded-full border border-gray-300 shadow-sm space-x-3 text-left hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  <div @click="add(comp)" class="group p-2 w-full flex items-center justify-between rounded-full border border-gray-300 shadow-sm space-x-3 text-left hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     {{comp}}
                 </div>
             </li>
