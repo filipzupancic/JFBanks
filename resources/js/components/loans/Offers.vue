@@ -197,7 +197,7 @@ const tiers = [
         href: "#",
         priceMonthly: 1.8,
         description:
-            "NLB ponuja ugodne obrestne mere in dobro pomoč uporabnikom.",
+            "Sparkasse ponuja ugodne obrestne mere in dobro pomoč uporabnikom.",
         features: [
             "Customer support.",
             "Real estate evaluation.",
@@ -219,7 +219,7 @@ const tiers = [
         href: "#",
         priceMonthly: 1.9,
         description:
-            "SKB ponuja ugodne obrestne mere in dobro pomoč uporabnikom.",
+            "Sparkasse ponuja ugodne obrestne mere in dobro pomoč uporabnikom.",
         features: [
             "Customer support.",
             "Real estate evaluation.",
@@ -230,7 +230,7 @@ const tiers = [
         href: "#",
         priceMonthly: 2.2,
         description:
-            "DH ponuja ugodne obrestne mere in dobro pomoč uporabnikom.",
+            "Sparkasse ponuja ugodne obrestne mere in dobro pomoč uporabnikom.",
         features: [
             "Customer support.",
             "Real estate evaluation.",

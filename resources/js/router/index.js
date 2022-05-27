@@ -16,7 +16,6 @@ import Login from "../components/users/Login"
 import LoanSteps from '../components/loans/LoanSteps'
 import Calendar from '../components/Calendar'
 import Wallet from '../components/Wallet'
-import AdminDashboard from '../components/'
 import AdminPage from '../components/admin_page/AdminPage'
 
 const routes = [
