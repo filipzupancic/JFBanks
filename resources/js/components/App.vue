@@ -7,7 +7,10 @@
     </div>
     <div id="modals"></div>
     <div>
-        <bottom-chat v-if="!modalsActive"></bottom-chat>
+        <bottom-chat v-if="!modalsActive" style="z-index: 100"></bottom-chat>
+    </div>
+    <div>
+        <Footer v-if="!modalsActive" style="z-index: 100"></Footer>
     </div>
 </template>
 
@@ -15,6 +18,7 @@
 import { defineComponent, ref } from "vue";
 import BottomChat from "./BottomChat";
 import Header from "./Header";
+import Footer from "./Footer";
 
 export default defineComponent({
     data() {
@@ -30,6 +34,7 @@ export default defineComponent({
     components: {
         "bottom-chat": BottomChat,
         Header,
+        Footer,
     },
     setup() {
         var modalsActive = ref(false);
