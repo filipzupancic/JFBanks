@@ -17,6 +17,7 @@ import LoanSteps from '../components/loans/LoanSteps'
 import Calendar from '../components/Calendar'
 import Wallet from '../components/Wallet'
 import AdminDashboard from '../components/'
+import AdminPage from '../components/admin_page/AdminPage'
 
 const routes = [
     {
@@ -105,6 +106,12 @@ const routes = [
         path: "/login",
         component: Login,
     },
+    {
+        name: 'admin',
+        path: '/admin',
+        component: AdminPage
+    },
+    
 ]
 
 export default createRouter({
