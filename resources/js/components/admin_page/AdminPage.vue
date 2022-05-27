@@ -146,8 +146,9 @@ import {
   XIcon,
 } from '@heroicons/vue/outline'
 import { SearchIcon } from '@heroicons/vue/solid'
-import UserList from './UserList'
-
+import PendingUserList from './PendingUserList'
+import ActiveUserList from './ActiveUserList'
+import MessagesUserList from './MessagesUserList'
 export default defineComponent({
 
 components:{
@@ -171,9 +172,9 @@ BellIcon,
 emits:['modalsChange'],
 setup(props,{emit}){
 const navigation = reactive([
-  { name: 'Čakajoča vrsta', icon: UsersIcon,component:"", current: true },
-  { name: 'V postopku kredita', icon: UsersIcon,component:UserList, current: false },
-  { name: 'Sporočila(2)', icon: InboxIcon,component:"", current: false },
+  { name: 'Čakajoča vrsta', icon: UsersIcon,component:PendingUserList, current: true },
+  { name: 'V postopku kredita', icon: UsersIcon,component:ActiveUserList, current: false },
+  { name: 'Sporočila(2)', icon: InboxIcon,component:MessagesUserList, current: false },
   { name: 'Uredi ponudbe', icon: ChartBarIcon,componet:"", current: false },
 ])
 const currentitem=ref(navigation[0]);
