@@ -1,84 +1,38 @@
 <template>
     <div class="bg-gradient-to-b from-white to-gray-50">
-        <div class="max-w-7xl mx-auto pt-24 px-4 sm:px-6 lg:px-8">
-            <div class="sm:flex sm:flex-col sm:align-center">
-                <h1
-                    class="text-3xl font-extrabold text-gray-900 sm:text-center"
-                >
-                    Best offers on the market for you
-                </h1>
-                <div
-                    class="relative mt-6 bg-gray-100 rounded-lg p-0.5 flex self-center sm:mt-8"
-                >
-                    <button
-                        type="button"
-                        class="relative bg-white border-gray-200 rounded-md shadow-sm py-2 w-1/2 text-sm font-medium text-gray-900 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:z-10 sm:w-auto sm:px-8"
-                    >
-                        Fiksna mera
-                    </button>
-                    <button
-                        type="button"
-                        class="ml-0.5 relative border border-transparent rounded-md py-2 w-1/2 text-sm font-medium text-gray-700 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:z-10 sm:w-auto sm:px-8"
-                    >
-                        Spremenljiva mera
-                    </button>
-                </div>
-            </div>
-            <div
-                class="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-4"
-            >
-                <div
-                    v-for="tier in tiers"
-                    :key="tier.name"
-                    class="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200"
-                >
-                    <div class="p-6">
-                        <h2 class="text-lg leading-6 font-medium text-gray-900">
-                            {{ tier.name }}
-                        </h2>
-                        <p class="mt-4 text-sm text-gray-500">
-                            {{ tier.description }}
-                        </p>
-                        <p class="mt-8">
-                            <span class="text-4xl font-extrabold text-gray-900"
-                                >${{ tier.priceMonthly }}</span
-                            >
-                            {{ " " }}
-                            <span class="text-base font-medium text-gray-500"
-                                >%</span
-                            >
-                        </p>
-                        <a
-                            :href="tier.href"
-                            class="mt-8 block w-full bg-blue-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-blue-700"
-                            >Get offer</a
-                        >
-                    </div>
-                    <div class="pt-6 pb-8 px-6">
-                        <h3
-                            class="text-xs font-medium text-gray-900 tracking-wide uppercase"
-                        >
-                            What's included
-                        </h3>
-                        <ul role="list" class="mt-6 space-y-4">
-                            <li
-                                v-for="feature in tier.features"
-                                :key="feature"
-                                class="flex space-x-3"
-                            >
-                                <CheckIconSolid
-                                    class="flex-shrink-0 h-5 w-5 text-green-500"
-                                    aria-hidden="true"
-                                />
-                                <span class="text-sm text-gray-500">{{
-                                    feature
-                                }}</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <div class="max-w-7xl mx-auto pt-4 px-4 sm:px-6 lg:px-8">
+        <div class="sm:flex sm:flex-col sm:align-center">
+          <!-- <h1 class="text-5xl font-extrabold text-gray-900 sm:text-center">Ponudbe</h1> -->
+          <p class="mt-5 text-xl text-gray-900 sm:text-center">Najbolj ugodne ponudbe.</p>
+          <div class="relative mt-6 bg-gray-100 rounded-lg p-0.5 flex self-center sm:mt-8">
+            <button type="button" class="relative bg-white border-gray-200 rounded-md shadow-sm py-2 w-1/2 text-sm font-medium text-gray-900 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:z-10 sm:w-auto sm:px-8">FIKSNA MERA</button>
+            <button type="button" class="ml-0.5 relative border border-transparent rounded-md py-2 w-1/2 text-sm font-medium text-gray-700 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:z-10 sm:w-auto sm:px-8">SPREMENLJIVA MERA</button>
+          </div>
         </div>
+        <div class="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-2">
+          <div v-for="tier in tiers" :key="tier.name" class="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
+            <div class="p-6">
+              <h2 class="text-lg leading-6 font-medium text-gray-900">{{ tier.name }}</h2>
+              <p class="mt-4 text-sm text-gray-500">{{ tier.description }}</p>
+              <p class="mt-8">
+                <span class="text-4xl font-extrabold text-gray-900">€{{ tier.priceMonthly }}</span>
+                {{ ' ' }}
+                <span class="text-base font-medium text-gray-500">/mesec</span>
+              </p>
+              <a :href="tier.href" class="mt-8 block w-full bg-blue-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-blue-700">DOGOVORI SE ZA SESTANEK</a>
+            </div>
+            <div class="pt-6 pb-8 px-6">
+              <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">Ponudba vključuje</h3>
+              <ul role="list" class="mt-6 space-y-4">
+                <li v-for="feature in tier.features" :key="feature" class="flex space-x-3">
+                  <CheckIconSolid class="flex-shrink-0 h-5 w-5 text-green-500" aria-hidden="true" />
+                  <span class="text-sm text-gray-500">{{ feature }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 </template>
 <script setup>
@@ -108,6 +62,28 @@ import {
     CheckIcon as CheckIconSolid,
     ChevronDownIcon,
 } from "@heroicons/vue/solid";
+
+const tiers = [
+  {
+    name: 'Osnovni',
+    href: '/koledar',
+    priceMonthly: 700,
+    description: 'Paket z osnovnim življenjskim zavarovanjem.',
+    features: ['Osnovno življenjsko zavarovanje.',],
+  },
+  {
+    name: 'Brezskrbni',
+    href: '/koledar',
+    priceMonthly: 650,
+    description: 'Paket, ki vključuje dodatne storitve.',
+    features: [
+      'Osnovno življenjsko zavarovanje.',
+      'Zavarovanje nepremičnine.',
+      'Dodatno zavarovanje',
+      'Vzajemni sklad.',
+    ],
+  },
+]
 
 const solutions = [
     {
@@ -191,52 +167,7 @@ const recentPosts = [
     },
     { id: 3, name: "Improve your customer experience", href: "#" },
 ];
-const tiers = [
-    {
-        name: "Paket 1",
-        href: "#",
-        priceMonthly: 1.8,
-        description:
-            "Sparkasse ponuja ugodne obrestne mere in dobro pomoč uporabnikom.",
-        features: [
-            "Customer support.",
-            "Real estate evaluation.",
-        ],
-    },
-    {
-        name: "Paket 2",
-        href: "#",
-        priceMonthly: 1.9,
-        description:
-            "Sparkasse ponuja ugodne obrestne mere in dobro pomoč uporabnikom.",
-        features: [
-            "Customer support.",
-            "Real estate evaluation.",
-        ],
-    },
-    {
-        name: "Paket 3",
-        href: "#",
-        priceMonthly: 1.9,
-        description:
-            "Sparkasse ponuja ugodne obrestne mere in dobro pomoč uporabnikom.",
-        features: [
-            "Customer support.",
-            "Real estate evaluation.",
-        ],
-    },
-    {
-        name: "Paket 4",
-        href: "#",
-        priceMonthly: 2.2,
-        description:
-            "Sparkasse ponuja ugodne obrestne mere in dobro pomoč uporabnikom.",
-        features: [
-            "Customer support.",
-            "Real estate evaluation.",
-        ],
-    },
-];
+
 const features = [
     {
         name: "Invite team members",

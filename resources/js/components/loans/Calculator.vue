@@ -27,7 +27,7 @@
           </svg>
         </button> -->
 
-                <div class="relative mt-8 md:mt-0">
+                <div class="relative my-8 md:mt-0">
                     <div
                         class="absolute inset-0 flex items-center"
                         aria-hidden="true"
@@ -44,180 +44,253 @@
                 </div>
 
                 <form class="mt-6">
-                    <div class="grid grid-cols-12 gap-y-6 gap-x-4">
-                        <div class="col-span-full">
+                    <div class="grid grid-cols-12 gap-y-6 gap-x-4 gap-y-8">
+                        <div class="col-span-full py-8">
                             <label
                                 for="email-address"
                                 class="block text-sm font-medium text-gray-700"
-                                >Email address</label
+                                >Koliko denarja potrebujete?</label
                             >
-                            <div class="mt-1">
-                                <input
-                                    type="email"
-                                    id="email-address"
-                                    name="email-address"
-                                    autocomplete="email"
-                                    class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                />
+                            <div class="mt-1 sm:mt-0 sm:col-span-2">
+                                <n-space vertical>
+                                    <n-slider
+                                        v-model:value="value"
+                                        range
+                                        :marks="marks"
+                                    />
+                                </n-space>
+                            </div>
+                        </div>
+                        <div class="col-span-full my-8">
+                            <div class="relative">
+                                <div
+                                    class="absolute inset-0 flex items-center"
+                                    aria-hidden="true"
+                                >
+                                    <div
+                                        class="w-full border-t border-gray-200"
+                                    />
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-span-full">
+                        <div class="col-span-full py-8">
                             <label
-                                for="name-on-card"
+                                for="email-address"
                                 class="block text-sm font-medium text-gray-700"
-                                >Name on card</label
+                                >ZAVAROVANJE KREDITA</label
                             >
-                            <div class="mt-1">
-                                <input
-                                    type="text"
-                                    id="name-on-card"
-                                    name="name-on-card"
-                                    autocomplete="cc-name"
-                                    class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                />
+                            <span
+                                class="relative z-0 inline-flex shadow-sm rounded-md"
+                            >
+                                <button
+                                    type="button"
+                                    class="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                                >
+                                    <shield-check-icon
+                                        class="-ml-1 mr-2 h-5 w-5 text-gray-400"
+                                        aria-hidden="true"
+                                    />
+                                    Zastava nepremičnine
+                                </button>
+                                <button
+                                    type="button"
+                                    class="-ml-px relative inline-flex items-center px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                                >
+                                    Brez zavarovanja
+                                    <shield-check-icon
+                                        class="ml-2 -mr-1 h-5 w-5 text-gray-400"
+                                        aria-hidden="true"
+                                    />
+                                </button>
+                            </span>
+                        </div>
+                        <div class="col-span-full my-8">
+                            <div class="relative">
+                                <div
+                                    class="absolute inset-0 flex items-center"
+                                    aria-hidden="true"
+                                >
+                                    <div
+                                        class="w-full border-t border-gray-200"
+                                    />
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-span-full">
+                        <div class="col-span-full pt-8">
                             <label
-                                for="card-number"
+                                for="email-address"
                                 class="block text-sm font-medium text-gray-700"
-                                >Card number</label
+                                >VZDRŽEVANI DRUŽNISKI ČLANI</label
                             >
-                            <div class="mt-1">
-                                <input
-                                    type="text"
-                                    id="card-number"
-                                    name="card-number"
-                                    autocomplete="cc-number"
-                                    class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                />
-                            </div>
                         </div>
 
-                        <div class="col-span-8 sm:col-span-9">
+                        <div class="col-span-6 sm:col-span-6">
                             <label
                                 for="expiration-date"
                                 class="block text-sm font-medium text-gray-700"
-                                >Expiration date (MM/YY)</label
+                                >Otroci</label
                             >
-                            <div class="mt-1">
-                                <input
-                                    type="text"
-                                    name="expiration-date"
-                                    id="expiration-date"
-                                    autocomplete="cc-exp"
-                                    class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                />
-                            </div>
+                            <span
+                                class="relative z-0 inline-flex shadow-sm rounded-md"
+                            >
+                                <span
+                                    class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white"
+                                >
+                                    <label for="select-all" class="sr-only"
+                                        >Select all</label
+                                    >
+                                    <input
+                                        id="select-all"
+                                        type="checkbox"
+                                        name="select-all"
+                                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                                    />
+                                </span>
+                                <label for="message-type" class="sr-only"
+                                    >Število vzdrževanih članov</label
+                                >
+                                <select
+                                    id="message-type"
+                                    name="message-type"
+                                    class="-ml-px block w-full pl-3 pr-9 py-2 rounded-l-none rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                                >
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                </select>
+                            </span>
                         </div>
 
-                        <div class="col-span-4 sm:col-span-3">
+                        <div class="col-span-6 sm:col-span-6">
                             <label
                                 for="cvc"
                                 class="block text-sm font-medium text-gray-700"
-                                >CVC</label
+                                >Odrasle osebe</label
                             >
-                            <div class="mt-1">
-                                <input
-                                    type="text"
-                                    name="cvc"
-                                    id="cvc"
-                                    autocomplete="csc"
-                                    class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                />
+                            <span
+                                class="relative z-0 inline-flex shadow-sm rounded-md"
+                            >
+                                <span
+                                    class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white"
+                                >
+                                    <label for="select-all" class="sr-only"
+                                        >Select all</label
+                                    >
+                                    <input
+                                        id="select-all"
+                                        type="checkbox"
+                                        name="select-all"
+                                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                                    />
+                                </span>
+                                <label for="message-type" class="sr-only"
+                                    >Število vzdrževanih članov</label
+                                >
+                                <select
+                                    id="message-type"
+                                    name="message-type"
+                                    class="-ml-px block w-full pl-3 pr-9 py-2 rounded-l-none rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                                >
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="col-span-full my-8">
+                            <div class="relative">
+                                <div
+                                    class="absolute inset-0 flex items-center"
+                                    aria-hidden="true"
+                                >
+                                    <div
+                                        class="w-full border-t border-gray-200"
+                                    />
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-span-full">
-                            <label
-                                for="address"
-                                class="block text-sm font-medium text-gray-700"
-                                >Address</label
-                            >
-                            <div class="mt-1">
-                                <input
-                                    type="text"
-                                    id="address"
-                                    name="address"
-                                    autocomplete="street-address"
-                                    class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                />
-                            </div>
-                        </div>
-
-                        <div class="col-span-full sm:col-span-4">
-                            <label
-                                for="city"
-                                class="block text-sm font-medium text-gray-700"
-                                >City</label
-                            >
-                            <div class="mt-1">
-                                <input
-                                    type="text"
-                                    id="city"
-                                    name="city"
-                                    autocomplete="address-level2"
-                                    class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                />
-                            </div>
-                        </div>
-
-                        <div class="col-span-full sm:col-span-4">
-                            <label
-                                for="regino"
-                                class="block text-sm font-medium text-gray-700"
-                                >State / Province</label
-                            >
-                            <div class="mt-1">
-                                <input
-                                    type="text"
-                                    id="regino"
-                                    name="regino"
-                                    autocomplete="address-level1"
-                                    class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                />
-                            </div>
-                        </div>
-
-                        <div class="col-span-full sm:col-span-4">
-                            <label
-                                for="postal-code"
-                                class="block text-sm font-medium text-gray-700"
-                                >Postal code</label
-                            >
-                            <div class="mt-1">
-                                <input
-                                    type="text"
-                                    id="postal-code"
-                                    name="postal-code"
-                                    autocomplete="postal-code"
-                                    class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                />
+                        <div class="col-span-full pt-8">
+                            <div class="text-center">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="mx-auto h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                                    />
+                                </svg>
+                                <h3
+                                    class="mt-2 text-sm font-medium text-gray-900"
+                                >
+                                    Poveži bančni račun
+                                </h3>
+                                <p class="mt-1 text-sm text-gray-500">
+                                    Prihrani čas za dokazovanje svoje kreditne
+                                    sposobnosti.
+                                </p>
+                                <div class="mt-6">
+                                    <button
+                                        type="button"
+                                        class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                    >
+                                        <PlusIcon
+                                            class="-ml-1 mr-2 h-5 w-5"
+                                            aria-hidden="true"
+                                        />
+                                        <router-link to="/denarnica">
+                                            Poveži račun
+                                        </router-link>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="mt-6 flex space-x-2">
+                    <div class="col-span-full my-8">
+                        <div class="relative">
+                            <div
+                                class="absolute inset-0 flex items-center"
+                                aria-hidden="true"
+                            >
+                                <div class="w-full border-t border-gray-200" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="mt-6 flex space-x-2">
                         <div class="flex items-center h-5">
                             <input
                                 id="same-as-shipping"
                                 name="same-as-shipping"
                                 type="checkbox"
                                 checked=""
-                                class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                                class="h-4 w-4 border-gray-300 rounded text-blue-600 focus:ring-blue-500"
                             />
                         </div>
-                        <!-- <label for="same-as-shipping" class="text-sm font-medium text-gray-900">Billing address is the same as shipping address</label> -->
-                    </div>
+                        <label for="same-as-shipping" class="text-sm font-medium text-gray-900">Billing address is the same as shipping address</label>
+                    </div> -->
 
-                    <button
+                    <!-- <button
                         type="submit"
-                        class="w-full mt-6 bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        class="w-full mt-6 bg-blue-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
                         Izračunaj kreditno sposobnost
-                    </button>
+                    </button> -->
 
                     <!-- <p class="flex justify-center text-sm font-medium text-gray-500 mt-6">
             <LockClosedIcon class="w-5 h-5 text-gray-400 mr-1.5" aria-hidden="true" />
@@ -236,7 +309,9 @@ import {
     LockClosedIcon,
     CheckIcon,
     ChevronRightIcon,
+    ShieldCheckIcon,
     HomeIcon,
+    PlusIcon,
 } from "@heroicons/vue/solid";
 import { NSpace, NSlider, NInputNumber } from "naive-ui";
 

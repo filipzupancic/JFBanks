@@ -11,20 +11,16 @@
             @end="dragging = false"
         >
             <template #item="{ element }">
-                <div
-                    class="group p-2 my-2 w-full flex items-center justify-between rounded-full border bg-blue-50 border-blue-500 shadow-sm space-x-3 text-center hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                >
-                    {{ element }}
+                <div class="group p-2 my-2 w-full flex items-center text-center justify-between rounded-full border bg-blue-50 border-blue-500 shadow-sm space-x-3 text-left hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    <div>
+                    <div v-if='element==="Stroski"'>Stroški</div>
+                    <div v-else>{{element}}</div>
+                    </div>
                     <div @click="update(element)" class="relative pb-8 pr-4 mr-8 pr-8">
                         <div class="absolute inset-y-0 right-0 text-red-500 text-3xl text-center">
                             <strong><b>X</b></strong>
                         </div>
                     </div>
-                    <!-- <button @click="update(element)" type="button" class="bg-gray-200 relative inline-flex flex-shrink-0 h-6 w-full border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" role="switch" aria-checked="false">
-              <span class="sr-only">Use setting</span>-->
-                    <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
-                    <!--<span aria-hidden="true" class="translate-x-0 pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"></span>
-            </button> -->
                 </div>
             </template>
         </draggable>

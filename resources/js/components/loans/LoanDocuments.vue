@@ -1,114 +1,74 @@
 <template>
-    <div>
-        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-            <div class="text-center radial-progress">
-                <p
-                    class="mt-1 text-3xl font-extrabold text-gray-900 sm:text-3xl sm:tracking-tight lg:text-3xl"
-                >
-                    Dokumenti
-                </p>
-                <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-                    Preprosto pridobi in dodaj potrebne dokumente.
-                </p>
-            
+  <div class="relative bg-white py-8 sm:py-12 lg:py-8">
+    <div class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
+      <!-- <h2 class="text-base font-semibold uppercase tracking-wider text-blue-600">Deploy faster</h2> -->
+      <!-- <p class="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Dodaj dokumente</p> -->
+      <p class="mx-auto mt-5 max-w-prose text-xl text-gray-500">Spodaj je seznam vseh potrebnih dokumentov, ki jih morate oddati pred začetkom postopka.</p>
+      <div class="mt-12">
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div v-for="feature in features" :key="feature.name" class="pt-6">
+            <div class="flow-root rounded-lg bg-gray-50 px-6 pb-8">
+              <div class="-mt-6">
+                <div>
+                  <span :class="feature.color" class="inline-flex items-center justify-center rounded-md p-3 shadow-lg">
+                    <component :is="feature.icon" class="h-6 w-6 text-white" aria-hidden="true" />
+                  </span>
+                </div>
+                <h3 class="mt-8 text-lg font-medium tracking-tight text-gray-900">{{ feature.name }}</h3>
+                <p class="mt-5 text-base text-gray-500">{{ feature.description }}</p>
+              </div>
             </div>
+          </div>
         </div>
-        <div 
-            class="overflow-hidden overflow-x-auto min-w-full align-middle sm:rounded-md"
-        >
-
-        <dodaj-dokument></dodaj-dokument>    
-
-             <ul 
-                role="list"
-                class="mt-3 grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4"
-            >
-                <template v-for="item in documents" :key="item.id">
-                    <li class="col-span-1 flex shadow-sm rounded-md">
-                        <div 
-                           @click="finishedStatus" class="flex-shrink-0 flex items-center justify-center w-16 bg-emerald-600 text-white text-sm font-medium rounded-l-md"
-                        >
-                            PDF
-                        </div>
-                        <div
-                            class="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate"
-                        >
-                            <div class="flex-1 px-4 py-2 text-sm truncate">
-                                <a
-                                    href="#"
-                                    class="text-gray-900 font-medium hover:text-gray-600"
-                                    >{{ item.name }}</a
-                                >
-                                <p class="text-gray-500">Added: May 2022</p>
-                            </div>
-                            <div class="flex-shrink-0 pr-2">
-                                <button
-                                    type="button"
-                                    class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full bg-transparent hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                                >
-                                    <span class="sr-only">Open options</span>
-                                    <!-- Heroicon name: solid/dots-vertical -->
-                                    <svg
-                                        class="w-5 h-5"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                    >
-                                        <path
-                                            d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"
-                                        />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </li>
-                </template>
-            </ul>
-        </div>
-        
+      </div>
     </div>
+  </div>
 </template>
 
-<script>
-import useDocuments from "../../composables/documents";
-import { defineComponent, onMounted } from "vue";
-import AddDocument from "../documents/AddDocument"
+<script setup>
+import {
+  CloudUploadIcon,
+  ClockIcon,
+  CheckIcon,
+  XIcon,
+} from '@heroicons/vue/outline'
 
-export default defineComponent({
-    emits:['finishedStatusEvent'],
-    data() {
-        return {
-
-        };
-    },
-    methods: {
-      
-    },
-    components:{
-        "dodaj-dokument":AddDocument
-
-    },
-    setup(props, { emit }) {
-
-        const { documents, getDocuments, deleteDocument } = useDocuments();
-        onMounted(getDocuments);
-        const finishedStatus= ()=>{
-
-            emit('finishedStatusEvent',true)
-        }
-        const deleteTheDocument = async (id) => {
-            if (!window.confirm("Are you sure?")) {
-                return;
-            }
-            await deleteDocument(id);
-            await getDocuments();
-        };
-        return {
-            documents,
-            finishedStatus,
-            deleteTheDocument,
-        };
-    },
-});
+const features = [
+  {
+    name: 'Energetska izkaznica',
+    description: 'Dokument je sprejet in potrjen.',
+    icon: CheckIcon,
+    color: 'bg-emerald-500'
+  },
+  {
+    name: 'Uporabno dovoljenje',
+    description: 'Dokument je v obdelavi. Preverite stanje s klikom na ikono nad imenom.',
+    icon: ClockIcon,
+    color: 'bg-yellow-300'
+  },
+  {
+    name: 'Izpisek plač',
+    description: 'Dokument morate še dodati. To storite s klikom na ikono nad imenom.',
+    icon: CloudUploadIcon,
+    color: 'bg-blue-500'
+  },
+  {
+    name: 'Dokument 4',
+    description: 'Dokument je zavrnjen. Preverite razlog s klikom na ikono nad imenom.',
+    icon: XIcon,
+    color: 'bg-red-500'
+  },
+  {
+    name: 'Dokument 5',
+    description: 'Dokument je sprejet in potrjen.',
+    icon: CheckIcon,
+    color: 'bg-emerald-500'
+  },
+  {
+    name: 'Dokument 6',
+    description: 'Dokument je v obdelavi. Preverite stanje s klikom na ikono nad imenom.',
+    icon: ClockIcon,
+    color: 'bg-yellow-300'
+  },
+]
 </script>

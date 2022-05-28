@@ -71,6 +71,10 @@ export default defineComponent({
                     type: "area",
                     height: 300,
                     stacked: true,
+                    toolbar: {
+                        show: false,
+                        tools: {}
+                        },
                     events: {
                         selection: function (chart, e) {
                             console.log(new Date(e.xaxis.min));

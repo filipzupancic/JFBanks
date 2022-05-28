@@ -1,23 +1,20 @@
 <template>
-    <div>
-        <div class="max-w-7xl mx-auto pt-16 px-4 sm:py-16 sm:px-6 lg:px-8">
-            <div class="text-center radial-progress">
-                <p
-                    class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl"
-                >
-                    finbit
-                </p>
-                <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-                    finance in kredit
-                </p>
-                <button @click="showModal" type="button" class="inline-flex items-center px-4 py-2 my-4 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Uredi aplikacijo po svoje</button>
+    <div class="max-w-7xl mx-auto pt-16 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <div class="text-center radial-progress">
+            <p
+                class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl"
+            >
+                finbit
+            </p>
+            <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">
+                finance in kredit
+            </p>
             <!-- <button @click="showModal" type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                 Customize
             </button> -->
-            </div>
-
         </div>
-        <!-- <div class="lg:grid lg:grid-cols-2 py-16 lg:gap-x-6 xl:gap-x-8">
+    </div>
+    <!-- <div class="lg:grid lg:grid-cols-2 py-16 lg:gap-x-6 xl:gap-x-8">
             <div class="bg-gray-100 rounded-lg p-6 flex items-center sm:p-10">
                 <div class="max-w-sm mx-auto text-center">
                     <h3 class="font-semibold text-lg text-gray-900">
@@ -58,154 +55,165 @@
             </div>
         </div> -->
 
+    <div
+        v-if="firstTimeVisitor"
+        class="relative bg-white py-16 sm:py-12 lg:py-16"
+    >
         <div
-            v-if="firstTimeVisitor"
-            class="relative bg-white py-16 sm:py-12 lg:py-16"
+            class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8"
         >
-            <div
-                class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8"
-            >
-                <div class="mt-12">
-                    <div
-                        class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-                    >
-                        <div class="flow-root rounded-lg bg-gray-50 px-6 pb-8">
-                            <div class="-mt-6">
-                                <div>
-                                    <span
-                                        class="inline-flex items-center justify-center rounded-md bg-yellow-500 p-3 shadow-lg"
-                                    >
-                                        <component
-                                            :is="CashIcon"
-                                            class="h-6 w-6 text-white"
-                                            aria-hidden="true"
-                                        />
-                                    </span>
-                                </div>
-                                <h3
-                                    class="mt-8 text-lg font-medium tracking-tight text-gray-900"
+            <div class="mt-12">
+                <div
+                    class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+                >
+                    <div class="flow-root rounded-lg bg-gray-50 px-6 pb-8">
+                        <div class="-mt-6">
+                            <div>
+                                <span
+                                    class="inline-flex items-center justify-center rounded-md bg-yellow-500 p-3 shadow-lg"
                                 >
-                                    STROŠKI
-                                </h3>
-                                <n-space vertical>
-                                    <n-slider
-                                        v-model:value="stroskiValue"
-                                        :marks="stroski"
-                                        step="mark"
+                                    <component
+                                        :is="CashIcon"
+                                        class="h-6 w-6 text-white"
+                                        aria-hidden="true"
                                     />
-                                </n-space>
+                                </span>
                             </div>
+                            <h3
+                                class="mt-8 text-lg font-medium tracking-tight text-gray-900"
+                            >
+                                STROŠKI
+                            </h3>
+                            <n-space vertical>
+                                <n-slider
+                                    v-model:value="stroskiValue"
+                                    :marks="stroski"
+                                    step="mark"
+                                />
+                            </n-space>
                         </div>
+                    </div>
 
-                        <div class="flow-root rounded-lg bg-gray-50 px-6 pb-8">
-                            <div class="-mt-6">
-                                <div>
-                                    <span
-                                        class="inline-flex items-center justify-center rounded-md bg-emerald-500 p-3 shadow-lg"
-                                    >
-                                        <component
-                                            :is="GlobeIcon"
-                                            class="h-6 w-6 text-white"
-                                            aria-hidden="true"
-                                        />
-                                    </span>
-                                </div>
-                                <h3
-                                    class="mt-8 text-lg font-medium tracking-tight text-gray-900"
+                    <div class="flow-root rounded-lg bg-gray-50 px-6 pb-8">
+                        <div class="-mt-6">
+                            <div>
+                                <span
+                                    class="inline-flex items-center justify-center rounded-md bg-emerald-500 p-3 shadow-lg"
                                 >
-                                    EKO
-                                </h3>
-                                <n-space vertical>
-                                    <n-slider
-                                        v-model:value="ekoValue"
-                                        :marks="eko"
-                                        step="mark"
+                                    <component
+                                        :is="GlobeIcon"
+                                        class="h-6 w-6 text-white"
+                                        aria-hidden="true"
                                     />
-                                </n-space>
+                                </span>
                             </div>
+                            <h3
+                                class="mt-8 text-lg font-medium tracking-tight text-gray-900"
+                            >
+                                EKO
+                            </h3>
+                            <n-space vertical>
+                                <n-slider
+                                    v-model:value="ekoValue"
+                                    :marks="eko"
+                                    step="mark"
+                                />
+                            </n-space>
                         </div>
+                    </div>
 
-                        <div class="flow-root rounded-lg bg-gray-50 px-6 pb-8">
-                            <div class="-mt-6">
-                                <div>
-                                    <span
-                                        class="inline-flex items-center justify-center rounded-md bg-blue-500 p-3 shadow-lg"
-                                    >
-                                        <component
-                                            :is="BadgeCheckIcon"
-                                            class="h-6 w-6 text-white"
-                                            aria-hidden="true"
-                                        />
-                                    </span>
-                                </div>
-                                <h3
-                                    class="mt-8 text-lg font-medium tracking-tight text-gray-900"
+                    <div class="flow-root rounded-lg bg-gray-50 px-6 pb-8">
+                        <div class="-mt-6">
+                            <div>
+                                <span
+                                    class="inline-flex items-center justify-center rounded-md bg-blue-500 p-3 shadow-lg"
                                 >
-                                    INVESTICIJE
-                                </h3>
-                                <n-space vertical>
-                                    <n-slider
-                                        v-model:value="investValue"
-                                        :marks="invest"
-                                        step="mark"
+                                    <component
+                                        :is="BadgeCheckIcon"
+                                        class="h-6 w-6 text-white"
+                                        aria-hidden="true"
                                     />
-                                </n-space>
+                                </span>
                             </div>
+                            <h3
+                                class="mt-8 text-lg font-medium tracking-tight text-gray-900"
+                            >
+                                INVESTICIJE
+                            </h3>
+                            <n-space vertical>
+                                <n-slider
+                                    v-model:value="investValue"
+                                    :marks="invest"
+                                    step="mark"
+                                />
+                            </n-space>
                         </div>
                     </div>
                 </div>
             </div>
-            <div
-                class="content-center"
-                style="align-items: center; text-align: center"
-            >
-                <button
-                    @click="saveSlider"
-                    type="button"
-                    class="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                >
-                    Save
-                </button>
-            </div>
         </div>
-
-        <ul role="list" class="space-y-3">
-            <li
-                v-for="(comp, idx) in selectedComponents"
-                :key="idx"
-                style="align-items: center; text-align: center"
-                class="bg-white shadow overflow-hidden rounded-md px-6 py-4"
+        <div
+            class="content-center"
+            style="align-items: center; text-align: center"
+        >
+            <button
+                @click="saveSlider"
+                type="button"
+                class="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-                <component :is="comp"></component>
-            </li>
-        </ul>
+                Save
+            </button>
+        </div>
+    </div>
+
+    <ul role="list" class="space-y-3">
+        <li
+            v-for="(comp, idx) in selectedComponents"
+            :key="idx"
+            style="align-items: center; text-align: center"
+            class="bg-white shadow overflow-hidden rounded-md px-6 py-4"
+        >
+            <component :is="comp"></component>
+        </li>
+    </ul>
+
+    <div class="flex content-center justify-center">
+        <button
+            @click="showModal"
+            type="button"
+            class="inline-flex items-center px-4 py-2 my-4 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        >
+            Uredi aplikacijo po svoje
+        </button>
     </div>
 
     <Modal
-    v-model="isShow"
-    :close="closeModal"
-    @before-enter="beforeEnter"
-    @after-enter="afterEnter"
-    @before-leave="beforeLeave"
-    @after-leave="afterLeave"
-  >
-    <div class="modal">
-    <dragable-page v-model:list="selectedComponents"></dragable-page>
-      <button @click="closeModal" class="inline-flex items-center px-4 py-2 my-4 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-        SHRANI
-      </button>
-    </div>
-  </Modal>
-
+        v-model="isShow"
+        :close="closeModal"
+        @before-enter="beforeEnter"
+        @after-enter="afterEnter"
+        @before-leave="beforeLeave"
+        @after-leave="afterLeave"
+    >
+        <div class="modal">
+            <dragable-page v-model:list="selectedComponents"></dragable-page>
+            <button
+                @click="closeModal"
+                class="inline-flex items-center px-4 py-2 my-4 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+                SHRANI
+            </button>
+        </div>
+    </Modal>
 </template>
 
 <script>
 import { ref, reactive, defineComponent, onMounted, onBeforeMount } from "vue";
-import Investments from "./homepage/Investments";
+import Investicije from "./homepage/Investicije";
 import Kredit from "./homepage/Kredit";
 import Eko from "./homepage/Eko";
-import Costs from "./homepage/Costs";
-import DragablePage from './homepage/DragablePage'
+import Stroski from "./homepage/Stroski";
+import DragablePage from "./homepage/DragablePage";
 import { NSpace, NSlider } from "naive-ui";
 import {
     BadgeCheckIcon,
@@ -276,21 +284,21 @@ export default defineComponent({
     data() {
         return {};
     },
-    emits:["modalsChange"],
+    emits: ["modalsChange"],
     methods: {},
     components: {
         NSpace,
-        Investments,
+        Investicije,
         Eko,
         Kredit,
-        Costs,
+        Stroski,
         NSlider,
         CashIcon,
         GlobeIcon,
         BadgeCheckIcon,
-        "dragable-page":DragablePage,
+        "dragable-page": DragablePage,
     },
-    setup(props,{emit}) {
+    setup(props, { emit }) {
         var stroskiValue = ref(0);
         var ekoValue = ref(0);
 
@@ -298,7 +306,12 @@ export default defineComponent({
 
         const completedSteps = ref(0);
         const totalSteps = ref(10);
-        var selectedComponents = ref(["Investments", "Eko", "Kredit", "Costs"]);
+        var selectedComponents = ref([
+            "Investicije",
+            "Eko",
+            "Kredit",
+            "Stroski",
+        ]);
         var firstTimeVisitor = ref(true);
         onBeforeMount(() => {
             if (localStorage.getItem("SelectedComponents") !== null) {
@@ -325,42 +338,38 @@ export default defineComponent({
             localStorage.setItem("Invest", JSON.stringify(investValue.value));
         };
 
+        const isShow = ref(false);
 
-    const isShow = ref(false)
+        function showModal() {
+            isShow.value = true;
+            console.log(isShow.value);
+        }
 
-    function showModal () {
-      isShow.value = true
-      console.log(isShow.value)
-    }
+        function closeModal() {
+            isShow.value = false;
+        }
 
-    function closeModal () {
-      isShow.value = false
-    }
+        function beforeEnter() {
+            console.log("before enter");
+            emit("modalsChange", true);
+        }
 
-    function beforeEnter () {
-      console.log('before enter')
-        emit("modalsChange",true)
-    }
+        function afterEnter() {
+            console.log("after enter");
+        }
 
-    function afterEnter () {
-      console.log('after enter')
-   
-    }
+        function beforeLeave() {
+            console.log("before leave");
+            emit("modalsChange", false);
+        }
 
-    function beforeLeave () {
-      console.log('before leave')
-      emit("modalsChange",false)
-    }
-
-    function afterLeave () {
-      console.log('after leave')
-        localStorage.setItem(
-        "SelectedComponents",
-        JSON.stringify(selectedComponents.value)
-        );
-        
-    }
-
+        function afterLeave() {
+            console.log("after leave");
+            localStorage.setItem(
+                "SelectedComponents",
+                JSON.stringify(selectedComponents.value)
+            );
+        }
 
         return {
             isShow,
@@ -411,11 +420,11 @@ export default defineComponent({
     align-items: center;
 }
 .modal {
-  width: 50vw;
-  padding: 30px;
-  box-sizing: border-box;
-  background-color: #fff;
-  font-size: 20px;
-  text-align: center;
+    width: 50vw;
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: 20px;
+    text-align: center;
 }
 </style>
