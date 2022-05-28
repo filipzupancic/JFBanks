@@ -201,10 +201,10 @@
 
 <script>
 import { ref, reactive, defineComponent, onMounted, onBeforeMount } from "vue";
-import Investments from "./homepage/Investments";
+import Investicije from "./homepage/Investicije";
 import Kredit from "./homepage/Kredit";
 import Eko from "./homepage/Eko";
-import Costs from "./homepage/Costs";
+import Stroski from "./homepage/Stroski";
 import DragablePage from './homepage/DragablePage'
 import { NSpace, NSlider } from "naive-ui";
 import {
@@ -280,10 +280,10 @@ export default defineComponent({
     methods: {},
     components: {
         NSpace,
-        Investments,
+        Investicije,
         Eko,
         Kredit,
-        Costs,
+        Stroski,
         NSlider,
         CashIcon,
         GlobeIcon,
@@ -298,7 +298,7 @@ export default defineComponent({
 
         const completedSteps = ref(0);
         const totalSteps = ref(10);
-        var selectedComponents = ref(["Investments", "Eko", "Kredit", "Costs"]);
+        var selectedComponents = ref(["Investicije", "Eko", "Kredit", "Stroski"]);
         var firstTimeVisitor = ref(true);
         onBeforeMount(() => {
             if (localStorage.getItem("SelectedComponents") !== null) {

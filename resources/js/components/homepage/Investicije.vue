@@ -4,22 +4,16 @@
             <div
                 class="max-w-7xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8"
             >
-                <h2
+                <h3
                     class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
                 >
-                    <span class="block">Zavarovanje in skladi</span>
-                </h2>
+                    <span class="block">Zavarovanje</span>
+                </h3>
             </div>
         </div>
-        <div
-            class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px"
-        >
-            <div
-                :class="[
-                    'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none',
-                    'relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500',
-                ]"
-            >
+        <div class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
+          
+            <div :class="['rounded-tl-lg rounded-tr-lg sm:rounded-tr-none','relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500']">
                 <div>
                     <span
                         :class="[
@@ -52,9 +46,8 @@
                     </h3>
                 </div>
             </div>
-            <div
-                class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500"
-            >
+            
+            <div class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500">
                 <div>
                     <span
                         :class="[
@@ -72,15 +65,16 @@
                 </div>
                 <div class="mt-8">
                     <router-link to="/nalozbe">
-<div class="rounded-lg p-6 flex items-center sm:p-10">
-                <div class="max-w-sm mx-auto text-center">
-                    <h3 class="font-semibold text-lg text-gray-900">Skladi</h3>
-                    <p class="mt-6 text-2xl text-gray-500">Sredstva v skladih: 34312€ <div class="text-emerald-500">+6%</div></p>
+                        <div class="rounded-lg p-6 flex items-center sm:p-10">
+                            <div class="max-w-sm mx-auto text-center">
+                                <h3 class="font-semibold text-lg text-gray-900">Skladi</h3>
+                                <p class="mt-6 text-2xl text-gray-500">Sredstva v skladih: 34312€ <div class="text-emerald-500">+6%</div></p>
+                            </div>
+                        </div>
+                    </router-link>
                 </div>
             </div>
-</router-link>
-                </div>
-            </div>
+            
         </div>
     </div>
 </template>
