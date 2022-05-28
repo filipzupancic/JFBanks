@@ -8,15 +8,16 @@
                     finbit
                 </p>
                 <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-                    At your service.
+                    finance in kredit
                 </p>
-            <button @click="showModal" type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <button @click="showModal" type="button" class="inline-flex items-center px-4 py-2 my-4 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Uredi aplikacijo po svoje</button>
+            <!-- <button @click="showModal" type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                 Customize
-            </button>
+            </button> -->
             </div>
 
         </div>
-        <div class="lg:grid lg:grid-cols-2 py-16 lg:gap-x-6 xl:gap-x-8">
+        <!-- <div class="lg:grid lg:grid-cols-2 py-16 lg:gap-x-6 xl:gap-x-8">
             <div class="bg-gray-100 rounded-lg p-6 flex items-center sm:p-10">
                 <div class="max-w-sm mx-auto text-center">
                     <h3 class="font-semibold text-lg text-gray-900">
@@ -55,7 +56,7 @@
                     </p>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div
             v-if="firstTimeVisitor"
@@ -161,7 +162,7 @@
                 <button
                     @click="saveSlider"
                     type="button"
-                    class="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                     Save
                 </button>
@@ -190,8 +191,8 @@
   >
     <div class="modal">
     <dragable-page v-model:list="selectedComponents"></dragable-page>
-      <button @click="closeModal">
-        close
+      <button @click="closeModal" class="inline-flex items-center px-4 py-2 my-4 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+        SHRANI
       </button>
     </div>
   </Modal>
