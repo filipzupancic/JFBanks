@@ -23,7 +23,7 @@
                   <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">{{ person.name }}</td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ person.message}}</td>
                   <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6 lg:pr-8">
-                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Kontaktiraj<span class="sr-only"></span></a>
+                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Odgovori<span class="sr-only"></span></a>
                   </td>
                 </tr>
               </tbody>

@@ -130,7 +130,7 @@
             <div class="w-full border-t border-gray-200" />
           </div>
           <div class="relative flex justify-center">
-            <span class="px-4 bg-white text-sm font-medium text-gray-500"> Tell us what you want </span>
+            <span class="px-4 bg-white text-sm font-medium text-gray-500"> Povej svoja pričakovanja </span>
           </div>
         </div>
 
