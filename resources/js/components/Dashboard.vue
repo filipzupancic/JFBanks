@@ -121,6 +121,7 @@
             class="content-center"
             style="align-items: center; text-align: center"
         >
+        <router-link to='/'>
             <button
                 @click="saveSlider"
                 type="button"
@@ -128,6 +129,7 @@
             >
                 Shrani
             </button>
+        </router-link>
         </div>
     </div>
     <!-- <dragable-page v-model:list="selectedComponents"  class="place-content-center"></dragable-page> -->

@@ -5,7 +5,7 @@
                 <p
                     class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl"
                 >
-                    Take care of your future.
+                    Poskrbi za prihodnost.
                 </p>
             </div>
         </div>
@@ -52,7 +52,7 @@
                         </router-link>
                     </h3>
                     <p class="mt-2 text-sm text-gray-500">
-                        finbit finds the best investments for you.
+                        Imej investicije pod kontrolo
                     </p>
                 </div>
                 <span
@@ -84,28 +84,28 @@ import { AcademicCapIcon, CashIcon, HomeIcon, GlobeIcon } from "@heroicons/vue/o
 
 const actions = [
     {
-        title: "Funds",
+        title: "Skladi",
         href: "#",
         icon: HomeIcon,
         iconForeground: "text-indigo-700",
         iconBackground: "bg-indigo-50",
     },
     {
-        title: "Real estate",
+        title: "Nepremičnine",
         href: "#",
         icon: HomeIcon,
         iconForeground: "text-emerald-700",
         iconBackground: "bg-emerald-50",
     },
     {
-        title: "Crypto",
+        title: "Kriptovalute",
         href: "#",
         icon: CashIcon,
         iconForeground: "text-blue-700",
         iconBackground: "bg-blue-50",
     },
     {
-        title: "Stocks",
+        title: "Delnice",
         href: "#",
         icon: CashIcon,
         iconForeground: "text-yellow-700",

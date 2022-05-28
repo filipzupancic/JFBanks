@@ -1,13 +1,14 @@
 <template>
+<router-link to="/nalozbe">
     <div class="bg-white">
         <div>
             <div
-                class="max-w-7xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8"
+                class="max-w-7xl mx-auto text-center py-4 px-4 sm:px-6 lg:py-4 lg:px-4"
             >
                 <h3
                     class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
                 >
-                    <span class="block">Zavarovanje</span>
+                    <span class="block">Investicije</span>
                 </h3>
             </div>
         </div>
@@ -29,17 +30,13 @@
                         />
                     </span>
                 </div>
-                <div class="mt-8">
+                <div class="mt-2">
                     <h3 class="text-lg font-medium">
                         <div class="focus:outline-none">
-                            <!-- Extend touch target to entire panel -->
-                            <span class="absolute inset-0" aria-hidden="true" />
                             <div id="chart">
                                 <apexchart
-                                    type="bar"
-                                    height="350"
-                                    :options="chartOptionsBar"
-                                    :series="seriesBar"
+                                    :options="chartOptions"
+                                    :series="series"
                                 ></apexchart>
                             </div>
                         </div>
@@ -64,19 +61,19 @@
                     </span>
                 </div>
                 <div class="mt-8">
-                    <router-link to="/nalozbe">
+
                         <div class="rounded-lg p-6 flex items-center sm:p-10">
                             <div class="max-w-sm mx-auto text-center">
                                 <h3 class="font-semibold text-lg text-gray-900">Skladi</h3>
-                                <p class="mt-6 text-2xl text-gray-500">Sredstva v skladih: 34312€ <div class="text-emerald-500">+6%</div></p>
+                                <p class="mt-6 text-2xl text-gray-500">13922,21€<div class="text-emerald-500">+6%</div></p>
                             </div>
                         </div>
-                    </router-link>
                 </div>
             </div>
             
         </div>
     </div>
+</router-link>
 </template>
 
 <script>
@@ -105,70 +102,43 @@ const actions = [
 export default defineComponent({
     data() {
         return {
-            seriesBar: [
-                {
-                    data: [1400, 1580, 1000, 1470, 1540, 1280, 1690, 550],
-                },
-            ],
-            chartOptionsBar: {
-                chart: {
-                    type: "bar",
-                    height: 350,
-                },
-                plotOptions: {
-                    bar: {
-                        borderRadius: 4,
-                        horizontal: false,
-                    },
-                },
-                dataLabels: {
-                    enabled: false,
-                },
-                xaxis: {
-                    categories: [
-                        "Okt 21",
-                        "Nov 21",
-                        "Dec 21",
-                        "Jan 22",
-                        "Feb 22",
-                        "Marec 22",
-                        "April 22",
-                        "Maj 22",
-                    ],
-                },
+        series: [{
+            name: "Investicija",
+            data: [10000, 10320, 10900,11400, 12042, 12900, 13002, 13400, 13920]
+        }],
+    chartOptions: {
+          chart: {
+            toolbar: {
+            show: false,
+            tools: {}
             },
-            series: [44, 55, 41, 17, 15],
-            chartOptions: {
-                chart: {
-                    type: "donut",
-                },
-                labels: [
-                    "Crypto",
-                    "Funds",
-                    "Real estate",
-                    "Stocks",
-                    "Ostalo",
-                ],
-                theme: {
-                    monochrome: {
-                        enabled: true,
-                    },
-                },
-                responsive: [
-                    {
-                        breakpoint: 480,
-                        options: {
-                            chart: {
-                                width: 200,
-                            },
-                            legend: {
-                                position: "bottom",
-                            },
-                        },
-                    },
-                ],
-            },
-            monthly_costs: monthly_costs.map((d) => new Date(d)),
+          height: 350,
+          type: 'line',
+          zoom: {
+            enabled: false
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'straight'
+        },
+        title: {
+          text: 'Stanje investicije',
+          align: 'left'
+        },
+        grid: {
+          row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+          },
+        },
+        xaxis: {
+          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+        },
+        },
+          monthly_costs: monthly_costs.map((d) => new Date(d)),
             prettify: function (ts) {
                 return new Date(ts).toLocaleDateString("en", {
                     year: "numeric",

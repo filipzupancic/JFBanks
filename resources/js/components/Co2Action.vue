@@ -10,10 +10,10 @@
                     <span class="block">Zmanjšaj svoj ogljični odtis</span>
                 </h2>
                 <div class="mt-8 flex justify-center">
-                    <div class="inline-flex rounded-md shadow">
+                    <div class="ml-3 inline-flex">
                         <a
                             href="/eko"
-                            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700"
+                            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-emerald-700 bg-emerald-100 hover:bg-emerald-200"
                         >
                             Ogljični odtis
                         </a>
@@ -21,7 +21,7 @@
                     <div class="ml-3 inline-flex">
                         <a
                             href="/eko-akcija"
-                            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-emerald-700 bg-emerald-100 hover:bg-emerald-200"
+                            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700"
                         >
                             Stopi v akcijo
                         </a>
@@ -63,7 +63,7 @@
 
         </div>
 
-        <div class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="flex content-center grid">
             <section class="section-tours">
                 <div class="row">
                     <div class="col-lg-4 mb-4">
