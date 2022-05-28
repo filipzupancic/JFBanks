@@ -88,12 +88,6 @@
 
             <!-- Profile dropdown -->
             <Menu as="div" class="ml-3 relative">
-              <div>
-                <MenuButton class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                  <span class="sr-only">Open user menu</span>
-                  <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                </MenuButton>
-              </div>
               <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
                 <MenuItems class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <MenuItem v-for="item in userNavigation" :key="item.name" v-slot="{ active }">
@@ -108,9 +102,6 @@
 
       <main>
         <div class="py-6">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-            <h1 class="text-2xl font-semibold text-gray-900">{{currentitem.name}}</h1>
-          </div>
           <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <!-- Replace with your content -->
                 <component :is='currentitem.component' :key="currentitem.name"></component>
@@ -146,10 +137,12 @@ import {
   XIcon,
 } from '@heroicons/vue/outline'
 import { SearchIcon } from '@heroicons/vue/solid'
-import UserList from './UserList'
+import PendingUserList from './PendingUserList'
+import ActiveUserList from './ActiveUserList'
+import MessagesUserList from './MessagesUserList'
+import OffersList from './OffersList'
 
 export default defineComponent({
-
 components:{
 SearchIcon,
 BellIcon,
@@ -171,10 +164,10 @@ BellIcon,
 emits:['modalsChange'],
 setup(props,{emit}){
 const navigation = reactive([
-  { name: 'Čakajoča vrsta', icon: UsersIcon,component:"", current: true },
-  { name: 'V postopku kredita', icon: UsersIcon,component:UserList, current: false },
-  { name: 'Sporočila(2)', icon: InboxIcon,component:"", current: false },
-  { name: 'Uredi ponudbe', icon: ChartBarIcon,componet:"", current: false },
+  { name: 'Čakajoča vrsta', icon: UsersIcon,component:PendingUserList, current: true },
+  { name: 'V postopku kredita', icon: UsersIcon,component:ActiveUserList, current: false },
+  { name: 'Sporočila(2)', icon: InboxIcon,component:MessagesUserList, current: false },
+  { name: 'Uredi ponudbe', icon: ChartBarIcon,component:OffersList, current: false },
 ])
 const currentitem=ref(navigation[0]);
 const userNavigation = [
