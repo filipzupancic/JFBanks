@@ -1,4 +1,5 @@
 <template>
+<router-link to="/stroski">
     <div class="bg-white">
         <div>
             <div
@@ -69,7 +70,7 @@
                     </span>
                 </div>
                 <div class="mt-8">
-                    <router-link to="/stroski">
+
 <div class="rounded-lg p-6 flex items-center sm:p-10">
                 <div class="max-w-sm mx-auto text-center">
                     <h3 class="font-semibold text-lg text-gray-900">Stroški</h3>
@@ -77,11 +78,12 @@
                     <p class="mt-6 text-2xl text-gray-500">od:<div class="text-blue-500">1000€</div></p>
                 </div>
             </div>
-</router-link>
+
                 </div>
             </div>
         </div>
     </div>
+</router-link>
 </template>
 
 <script>
@@ -120,9 +122,10 @@ export default defineComponent({
                 chart: {
                     type: "bar",
                     height: 350,
-                },
-                toolbar:{
-                    show:false
+                    toolbar: {
+                        show: false,
+                        tools: {}
+                        },
                 },
                 plotOptions: {
                     bar: {

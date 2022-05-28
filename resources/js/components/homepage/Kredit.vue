@@ -1,5 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
+    <router-link :to="(completedSteps!=4) ? '/kredit/prvi-korak':'/'">
         <div>
             <div
                 class="max-w-7xl mx-auto text-center py-4 px-4 sm:px-6 lg:py-4 lg:px-4"
@@ -13,13 +14,12 @@
         </div>
    <div class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
             <div :class="['rounded-tl-lg rounded-tr-lg sm:rounded-tr-none','relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500']">
-                <router-link to="/kredit/prvi-korak" style="align-items: center;text-align:center;" >
                         <div class="app__content">
                             <div class="content__radial">
                                 <GradientProgress
                                     :diameter="diameter"
                                     :total-steps="totalSteps"
-                                    :completed-steps="completedSteps"
+                                    :completed-steps="completedSteps+1"
                                     :animate-speed="animateSpeed"
                                     :stroke-width="strokeWidth"
                                     :inner-stroke-width="innerStrokeWidth"
@@ -32,12 +32,11 @@
                                 >
                                     <div>
                                         <small>Stanje pridobivanja kredita </small>
-                                        <span>{{ completedSteps }} / {{ totalSteps }}</span>
+                                        <span>{{ completedSteps+1 }} / {{ totalSteps }}</span>
                                     </div>
                                 </GradientProgress>
                             </div>
                         </div>
-                    </router-link>
             </div>
             
             <div class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500">
@@ -57,27 +56,27 @@
                     </span>
                 </div>
                 <div class="mt-8">
-                    <router-link to="/kredit/prvi-korak">
+
                         <div class="rounded-lg p-6 flex items-center sm:p-10">
                             <div class="max-w-sm mx-auto text-center">
-                                <h3 class="font-semibold text-lg text-gray-900">Naslednji korak:</h3>
                                 <p v-if="completedSteps==0" class="mt-6 text-2xl text-gray-500">V prvem koraku izračunajte kreditno sposobnost<div class="text-emerald-500">Kalkulator</div></p>
-                                <p v-else-if="completedSteps==1" class="mt-6 text-2xl text-gray-500">Izberite tip obrestne mere<div class="text-emerald-500">Fiksna ali variabilna</div></p>
-                                <p v-else-if="completedSteps==2" class="mt-6 text-2xl text-gray-500">Izberite dodatno zavarovanje<div class="text-emerald-500">Stanovanjsko zavarovanje</div></p>
-                                <p v-else-if="completedSteps==3" class="mt-6 text-2xl text-gray-500">Naložite manjkajoče dokumente: <div class="text-red-500">Energetska izkaznica</div></p>
-                                <p v-else-if="completedSteps==4" class="mt-6 text-2xl text-gray-500">Status<div class="text-emerald-500">Preverjanje dokumentacije</div></p>
-                                <p v-else class="mt-6 text-2xl text-gray-500">Naložite dokument: <div class="text-emerald-500">Čestitke, kredit je vaš</div></p>
+                                <p v-else-if="completedSteps==1" class="mt-6 text-2xl text-gray-500">Izberite tip obrestne mere in ponudbe<div class="text-emerald-500">Fiksna ali variabilna</div></p>
+                                <p v-else-if="completedSteps==2" class="mt-6 text-2xl text-gray-500">Naložite manjkajoče dokumente: <div class="text-orange-500">Izpisek plač</div><div class="text-orange-500">Dokument 4</div></p>                                
+                                <component v-else-if="completedSteps==3" is="Connect" key="abcde"> </component>
+                                <p v-else class="mt-6 text-2xl text-gray-500">Čestitke, kredit je vaš:<div class="text-emerald-500">Naslednji koraki</div></p>
                             </div>
                         </div>
-                    </router-link>
+                
                 </div>
             </div>    
         </div>
+            </router-link>
 </template>
 
 <script>
 import GradientProgress from "vue3-radial-progress";
 import {defineComponent, ref, onMounted} from "vue"
+import Connect from "../loans/Connect.vue"
 export default defineComponent({
 
     data() {
@@ -99,6 +98,7 @@ export default defineComponent({
     },
     components: {
         GradientProgress,
+        Connect,
     },
 setup(){
           const percentageRef = ref(0);

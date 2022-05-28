@@ -104,7 +104,7 @@
                 </nav>
                 <div class="bg-white">
                     <div
-                        class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8"
+                        class="flex align-center justify-center max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8"
                     >
                         <div class="text-center">
                             <h2
@@ -139,6 +139,7 @@
                             to='/'
                             type="button"
                             class="button_green"
+                            @click="nextClicked"
                         >
                             Zaključi
                         </router-link>
@@ -263,6 +264,7 @@ export default defineComponent({
 
         const nextClicked = () => {
             currentStep.value += 1;
+            if (currentStep.value>4) currentStep.value=4;
             localStorage.setItem("LoanStep", currentStep.value);
             var step = steps.value[currentStep.value];
             currentComponent.value = step.component;
@@ -273,6 +275,7 @@ export default defineComponent({
 
         const prevClicked = () => {
             currentStep.value -= 1;
+            if (currentStep.value<0) currentStep.value=0;
             localStorage.setItem("LoanStep", currentStep.value);
             var step = steps.value[currentStep.value];
             currentComponent.value = step.component;

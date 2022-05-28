@@ -1,4 +1,5 @@
 <template>
+<router-link to="/nalozbe">
     <div class="bg-white">
         <div>
             <div
@@ -60,19 +61,19 @@
                     </span>
                 </div>
                 <div class="mt-8">
-                    <router-link to="/nalozbe">
+
                         <div class="rounded-lg p-6 flex items-center sm:p-10">
                             <div class="max-w-sm mx-auto text-center">
                                 <h3 class="font-semibold text-lg text-gray-900">Skladi</h3>
                                 <p class="mt-6 text-2xl text-gray-500">13922,21€<div class="text-emerald-500">+6%</div></p>
                             </div>
                         </div>
-                    </router-link>
                 </div>
             </div>
             
         </div>
     </div>
+</router-link>
 </template>
 
 <script>
@@ -107,14 +108,15 @@ export default defineComponent({
         }],
     chartOptions: {
           chart: {
+            toolbar: {
+            show: false,
+            tools: {}
+            },
           height: 350,
           type: 'line',
           zoom: {
             enabled: false
           }
-        },
-        toolbar:{
-            show: false
         },
         dataLabels: {
           enabled: false
