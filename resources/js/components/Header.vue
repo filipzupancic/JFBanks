@@ -27,16 +27,16 @@
         </div>
 
         <!-- <div class="py-4 flex flex-wrap justify-center space-x-6 lg-hidden">
-        <a href="/kredit" class="text-base font-medium text-blue-500 hover:text-indigo-50">
+        <a href="/kredit" class="text-base font-medium text-blue-500 hover:text-blue-50">
           LOANS
         </a>
-        <a href="/stroki" class="text-base font-medium text-blue-500 hover:text-indigo-50">
+        <a href="/stroki" class="text-base font-medium text-blue-500 hover:text-blue-50">
           COSTS
         </a>
-        <a href="/nalozbe" class="text-base font-medium text-blue-500 hover:text-indigo-50">
+        <a href="/nalozbe" class="text-base font-medium text-blue-500 hover:text-blue-50">
           INVESTMENTS
         </a>
-        <a href="/eko" class="text-base font-medium text-blue-500 hover:text-indigo-50">
+        <a href="/eko" class="text-base font-medium text-blue-500 hover:text-blue-50">
           PLANET
         </a>
       </div> -->
@@ -100,7 +100,7 @@
                         <!-- <div>
               <a href="/" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700"> Home </a>
             </div> -->
-                      <!-- for logged-in user-->
+                        <!-- for logged-in user-->
                         <div v-if="isLoggedIn">
                             <div class="pt-4 pb-3 border-t border-gray-200">
                                 <div class="flex items-center px-4">
@@ -129,16 +129,15 @@
                                         as="a"
                                         href="/admin"
                                         class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
-                                        ><router-link
-                                            :to="{ name: 'admin' }"
-                                            >Profile</router-link
+                                        ><router-link :to="{ name: 'admin' }"
+                                            >Nadzorna plošča</router-link
                                         ></DisclosureButton
                                     >
                                     <DisclosureButton
                                         as="a"
                                         class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
                                         ><a @click="logout"
-                                            >Sign out</a
+                                            >Odjava</a
                                         ></DisclosureButton
                                     >
                                 </div>
@@ -148,26 +147,25 @@
                         <div v-else>
                             <div>
                                 <a
+                                    href="/login"
                                     class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
                                 >
-                                    <router-link :to="{ name: 'register' }">
-                                        Sign up</router-link
-                                    >
+                                    Registracija
                                 </a>
                                 <p
                                     class="mt-6 text-center text-base font-medium text-gray-500"
                                 >
                                     Existing member?
                                     {{ " " }}
-                                    <a class="text-blue-600 hover:text-blue-500"
-                                        ><router-link :to="{ name: 'login' }">
-                                            Sign in</router-link
-                                        >
+                                    <a
+                                        href="/login"
+                                        class="text-blue-600 hover:text-blue-500"
+                                    >
+                                        Prijava
                                     </a>
                                 </p>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </PopoverPanel>
@@ -206,18 +204,11 @@ import { ChevronDownIcon } from "@heroicons/vue/solid";
 
 const solutions = [
     {
-        name: "Costs",
+        name: "Kredit",
         description:
-            "Get a better understanding of where your traffic is coming from.",
-        href: "/stroski",
-        icon: ChartPieIcon,
-    },
-    {
-        name: "Investments",
-        description:
-            "Speak directly to your customers in a more meaningful way.",
-        href: "/nalozbe",
-        icon: ChartPieIcon,
+            "Connect with third-party tools that you're already using.",
+        href: "/kredit",
+        icon: CurrencyDollarIcon,
     },
     {
         name: "Planet",
@@ -226,32 +217,39 @@ const solutions = [
         icon: GlobeIcon,
     },
     {
-        name: "Loans",
+        name: "Stroški",
         description:
-            "Connect with third-party tools that you're already using.",
-        href: "/kredit",
-        icon: CurrencyDollarIcon,
+            "Get a better understanding of where your traffic is coming from.",
+        href: "/stroski",
+        icon: ChartPieIcon,
     },
     {
-        name: "Personalise",
+        name: "Investicije",
         description:
-            "Build strategic funnels that will drive your customers to convert",
-        href: "/profil",
-        icon: UserCircleIcon,
+            "Speak directly to your customers in a more meaningful way.",
+        href: "/nalozbe",
+        icon: ChartPieIcon,
     },
     {
-        name: "Calendar",
+        name: "Koledar",
         description:
             "Build strategic funnels that will drive your customers to convert",
         href: "/koledar",
         icon: CalendarIcon,
     },
     {
-        name: "Wallet",
+        name: "Denarnica",
         description:
             "Build strategic funnels that will drive your customers to convert",
         href: "/denarnica",
         icon: CashIcon,
+    },
+    {
+        name: "Prilagodi",
+        description:
+            "Build strategic funnels that will drive your customers to convert",
+        href: "/profil",
+        icon: UserCircleIcon,
     },
 ];
 const callsToAction = [
