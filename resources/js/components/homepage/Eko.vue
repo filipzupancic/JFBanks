@@ -1,9 +1,21 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
+        <div>
+            <div
+                class="max-w-7xl mx-auto text-center py-4 px-4 sm:px-6 lg:py-4 lg:px-4"
+            >
+                <h2
+                    class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+                >
+                    <span class="block">Ogljični odtis</span>
+                </h2>
+            </div>
+        </div>
+<router-link to="/eko">
                     <div style="align-items: center;text-align:center;">
-                    <h3 class="font-semibold text-lg text-gray-900">Save the planet</h3>
+                    <h2 class="text-lg text-gray-600">Danes si proizvedel/a <div class="text-red-500">1,4 Kg</div>  Co2</h2>
                     </div>
-                       <div class="py-8">
+                       <div class="py-4">
                         <apexchart
                           type="area"
                           height="300"
@@ -11,7 +23,7 @@
                           :series="series"
                       ></apexchart>
                       </div>
-
+</router-link>
 </template>
 
 <script>

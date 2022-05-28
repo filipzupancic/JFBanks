@@ -1,33 +1,78 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-<div class="rounded-lg p-6 flex place-content-center sm:p-10" >
-  <router-link to="/kredit/prvi-korak" style="align-items: center;text-align:center;" >
-        <div class="app__content">
-            <div class="content__radial">
-                <GradientProgress
-                    :diameter="diameter"
-                    :total-steps="totalSteps"
-                    :completed-steps="completedSteps"
-                    :animate-speed="animateSpeed"
-                    :stroke-width="strokeWidth"
-                    :inner-stroke-width="innerStrokeWidth"
-                    :stroke-linecap="round"
-                    :start-color="startColor"
-                    :stop-color="stopColor"
-                    :inner-stroke-color="innerStrokeColor"
-                    :timing-func="timingFunc"
-                    :is-clockwise="isClockwise"
+        <div>
+            <div
+                class="max-w-7xl mx-auto text-center py-4 px-4 sm:px-6 lg:py-4 lg:px-4"
+            >
+                <h2
+                    class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
                 >
-                    <div>
-                        <small>Loan Process </small>
-                        <span>{{ completedSteps }} / {{ totalSteps }}</span>
-                    </div>
-                </GradientProgress>
+                    <span class="block">Kredit</span>
+                </h2>
             </div>
         </div>
-                   </router-link>
+   <div class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
+            <div :class="['rounded-tl-lg rounded-tr-lg sm:rounded-tr-none','relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500']">
+                <router-link to="/kredit/prvi-korak" style="align-items: center;text-align:center;" >
+                        <div class="app__content">
+                            <div class="content__radial">
+                                <GradientProgress
+                                    :diameter="diameter"
+                                    :total-steps="totalSteps"
+                                    :completed-steps="completedSteps"
+                                    :animate-speed="animateSpeed"
+                                    :stroke-width="strokeWidth"
+                                    :inner-stroke-width="innerStrokeWidth"
+                                    :stroke-linecap="round"
+                                    :start-color="startColor"
+                                    :stop-color="stopColor"
+                                    :inner-stroke-color="innerStrokeColor"
+                                    :timing-func="timingFunc"
+                                    :is-clockwise="isClockwise"
+                                >
+                                    <div>
+                                        <small>Stanje pridobivanja kredita </small>
+                                        <span>{{ completedSteps }} / {{ totalSteps }}</span>
+                                    </div>
+                                </GradientProgress>
+                            </div>
+                        </div>
+                    </router-link>
+            </div>
+            
+            <div class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-500">
+                <div>
+                    <span
+                        :class="[
+                            'text-yellow-50',
+                            'text-yellow-700',
+                            'rounded-lg inline-flex p-3 ring-4 ring-white',
+                        ]"
+                    >
+                        <component
+                            :is="CashIcon"
+                            class="h-6 w-6"
+                            aria-hidden="true"
+                        />
+                    </span>
+                </div>
+                <div class="mt-8">
+                    <router-link to="/kredit/prvi-korak">
+                        <div class="rounded-lg p-6 flex items-center sm:p-10">
+                            <div class="max-w-sm mx-auto text-center">
+                                <h3 class="font-semibold text-lg text-gray-900">Naslednji korak:</h3>
+                                <p v-if="completedSteps==0" class="mt-6 text-2xl text-gray-500">V prvem koraku izračunajte kreditno sposobnost<div class="text-emerald-500">Kalkulator</div></p>
+                                <p v-else-if="completedSteps==1" class="mt-6 text-2xl text-gray-500">Izberite tip obrestne mere<div class="text-emerald-500">Fiksna ali variabilna</div></p>
+                                <p v-else-if="completedSteps==2" class="mt-6 text-2xl text-gray-500">Izberite dodatno zavarovanje<div class="text-emerald-500">Stanovanjsko zavarovanje</div></p>
+                                <p v-else-if="completedSteps==3" class="mt-6 text-2xl text-gray-500">Naložite manjkajoče dokumente: <div class="text-red-500">Energetska izkaznica</div></p>
+                                <p v-else-if="completedSteps==4" class="mt-6 text-2xl text-gray-500">Status<div class="text-emerald-500">Preverjanje dokumentacije</div></p>
+                                <p v-else class="mt-6 text-2xl text-gray-500">Naložite dokument: <div class="text-emerald-500">Čestitke, kredit je vaš</div></p>
+                            </div>
+                        </div>
+                    </router-link>
+                </div>
+            </div>    
         </div>
- 
 </template>
 
 <script>

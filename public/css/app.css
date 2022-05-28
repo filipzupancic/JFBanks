@@ -2115,6 +2115,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   }.lg\:py-16 {
     padding-top: 4rem;
     padding-bottom: 4rem;
+  }.lg\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }.lg\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }.lg\:py-24 {
     padding-top: 6rem;
     padding-bottom: 6rem;

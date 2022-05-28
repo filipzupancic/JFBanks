@@ -2,12 +2,12 @@
     <div class="bg-white">
         <div>
             <div
-                class="max-w-7xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8"
+                class="max-w-7xl mx-auto text-center py-4 px-4 sm:px-6 lg:py-4 lg:px-4"
             >
                 <h2
                     class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
                 >
-                    <span class="block">Your costs</span>
+                    <span class="block">Stroški</span>
                 </h2>
             </div>
         </div>
@@ -35,11 +35,9 @@
                         />
                     </span>
                 </div>
-                <div class="mt-8">
+                <div class="mt-2">
                     <h3 class="text-lg font-medium">
                         <div class="focus:outline-none">
-                            <!-- Extend touch target to entire panel -->
-                            <span class="absolute inset-0" aria-hidden="true" />
                             <div id="chart">
                                 <apexchart
                                     type="bar"
@@ -74,8 +72,9 @@
                     <router-link to="/stroski">
 <div class="rounded-lg p-6 flex items-center sm:p-10">
                 <div class="max-w-sm mx-auto text-center">
-                    <h3 class="font-semibold text-lg text-gray-900">Costs</h3>
-                    <p class="mt-6 text-2xl text-gray-500">Monthly budget: 912€ <div class="text-emerald-500">+3%</div></p>
+                    <h3 class="font-semibold text-lg text-gray-900">Stroški</h3>
+                    <p class="mt-6 text-2xl text-gray-500">Ta mesec lahko porabiš:<div class="text-emerald-500">493€</div></p>
+                    <p class="mt-6 text-2xl text-gray-500">od:<div class="text-blue-500">1000€</div></p>
                 </div>
             </div>
 </router-link>
@@ -117,9 +116,13 @@ export default defineComponent({
                 },
             ],
             chartOptionsBar: {
+                
                 chart: {
                     type: "bar",
                     height: 350,
+                },
+                toolbar:{
+                    show:false
                 },
                 plotOptions: {
                     bar: {
@@ -147,6 +150,9 @@ export default defineComponent({
             chartOptions: {
                 chart: {
                     type: "donut",
+                },
+                toolbar:{
+                    enabled:false
                 },
                 labels: [
                     "Avto",

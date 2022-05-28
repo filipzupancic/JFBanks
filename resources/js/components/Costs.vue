@@ -74,8 +74,9 @@
                     <router-link to="/stroski">
 <div class="rounded-lg p-6 flex items-center sm:p-10">
                 <div class="max-w-sm mx-auto text-center">
-                    <h3 class="font-semibold text-lg text-gray-900">Costs</h3>
-                    <p class="mt-6 text-2xl text-gray-500">Monthly budget: 912€ <div class="text-emerald-500">+3%</div></p>
+                    <h3 class="font-semibold text-lg text-gray-900">Stroški</h3>
+                    <p class="mt-6 text-2xl text-gray-500">Ta mesec lahko porabiš:<div class="text-emerald-500">493€</div></p>
+                    <p class="mt-6 text-2xl text-gray-500">od:<div class="text-blue-500">1000€</div></p>
                 </div>
             </div>
 </router-link>
