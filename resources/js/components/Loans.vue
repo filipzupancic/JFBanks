@@ -85,28 +85,28 @@ import { AcademicCapIcon, CashIcon, HomeIcon, GlobeIcon } from "@heroicons/vue/o
 const actions = [
     {
         title: "Stanovanjski kredit",
-        href: "/kredit/prvi-korak",
+        href: "/kredit",
         icon: HomeIcon,
         iconForeground: "text-indigo-700",
         iconBackground: "bg-indigo-50",
     },
     {
         title: "EKO kredit",
-        href: "/kredit/prvi-korak",
+        href: "/kredit",
         icon: GlobeIcon,
         iconForeground: "text-emerald-700",
         iconBackground: "bg-emerald-50",
     },
     {
         title: "Študentski kredit",
-        href: "/kredit/prvi-korak",
+        href: "/kredit",
         icon: AcademicCapIcon,
         iconForeground: "text-blue-700",
         iconBackground: "bg-blue-50",
     },
     {
         title: "Osebni kredit",
-        href: "/kredit/prvi-korak",
+        href: "/kredit",
         icon: CashIcon,
         iconForeground: "text-yellow-700",
         iconBackground: "bg-yellow-50",

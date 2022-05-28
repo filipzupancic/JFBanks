@@ -24,10 +24,7 @@ import { defineComponent, h } from 'vue'
 
 const navigation = {
   main: [
-    { name: 'Kredit', href: '/kredit' },
-    { name: 'Stroški', href: '/stroski' },
-    { name: 'Eko', href: '/eko' },
-    { name: 'Naložbe', href: '/nalozbe' },
+    
   ],
   social: [
     {

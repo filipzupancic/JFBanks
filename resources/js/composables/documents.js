@@ -23,7 +23,7 @@ export default function useDocuments() {
         errors.value = ''
         try {
             await axios.post('/api/documents', data)
-            await router.push({ name: 'prvi-korak' })
+            await router.push({ name: 'kredit' })
         } catch (e) {
             if (e.response.status === 422) {
                 for (const key in e.response.data.errors) {

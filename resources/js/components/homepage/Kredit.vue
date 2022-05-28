@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-    <router-link :to="(completedSteps!=4) ? '/kredit/prvi-korak':'/'">
+    <div @click="clickKredit">
         <div>
             <div
                 class="max-w-7xl mx-auto text-center py-4 px-4 sm:px-6 lg:py-4 lg:px-4"
@@ -70,11 +70,12 @@
                 </div>
             </div>    
         </div>
-            </router-link>
+            </div>
 </template>
 
 <script>
 import GradientProgress from "vue3-radial-progress";
+import { useRouter } from "vue-router";
 import {defineComponent, ref, onMounted} from "vue"
 import Connect from "../loans/Connect.vue"
 export default defineComponent({
@@ -104,6 +105,8 @@ setup(){
           const percentageRef = ref(0);
           var completedSteps=ref(0);
 
+        const router = useRouter();
+
         const add = () => {
             percentageRef.value += 10;
             if (percentageRef.value > 100) {
@@ -117,6 +120,11 @@ setup(){
                 percentageRef.value = 100;
             }
         };
+
+        function clickKredit() {
+            router.push('/kredit')
+        }
+
         onMounted(()=>{
   if (localStorage.getItem("LoanStep") !== null) {
             completedSteps.value=JSON.parse(localStorage.getItem("LoanStep"));
@@ -125,6 +133,7 @@ setup(){
           
         })
         return {
+            clickKredit,
             percentage: percentageRef,
             add,
             minus,

@@ -163,7 +163,6 @@
 import { onMounted, ref, defineComponent, defineAsyncComponent } from "vue";
 import { CheckIcon } from "@heroicons/vue/solid";
 import { ChevronRightIcon, HomeIcon } from "@heroicons/vue/solid";
-
 import Offers from "./Offers";
 import Connect from "./Connect.vue";
 import Calculator from "./Calculator";
@@ -171,7 +170,7 @@ import Signature from "./Signature";
 import LoanDocuments from "./LoanDocuments";
 const pages = [
     { name: "kredit", href: "/kredit", current: false },
-    { name: "peti korak", href: "/kredit/prvi-korak", current: true },
+    { name: "peti korak", href: "/kredit", current: true },
 ];
 
 export default defineComponent({

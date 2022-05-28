@@ -229,7 +229,7 @@ const solutions = [
         name: "Loans",
         description:
             "Connect with third-party tools that you're already using.",
-        href: "/kredit/prvi-korak",
+        href: "/kredit",
         icon: CurrencyDollarIcon,
     },
     {

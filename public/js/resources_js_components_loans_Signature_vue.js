@@ -36,12 +36,12 @@ var pages = [{
   current: false
 }, {
   name: 'prvi korak',
-  href: '/kredit/prvi-korak',
+  href: '/kredit',
   current: true
 }];
 var steps = [{
   name: "Step 1",
-  href: "/kredit/prvi-korak",
+  href: "/kredit",
   status: "current"
 }, {
   name: "Step 2",

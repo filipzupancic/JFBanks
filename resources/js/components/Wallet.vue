@@ -45,7 +45,7 @@
                     <div class="mt-3 sm:mt-0 sm:ml-4 sm:flex-shrink-0">
                         <button type="submit"
                             class="block w-full text-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            <a href="/">Poveži</a>
+                            <a href="/kredit">Poveži</a>
                         </button>
                     </div>
                 </form>

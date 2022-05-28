@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Loans from '../components/Loans'
 import Home from '../components/Home'
 import Costs from '../components/Costs'
 import Costs2Action from '../components/Costs2Action'
@@ -23,11 +22,6 @@ const routes = [
         path: '/',
         name: 'home',
         component: Home
-    },
-    {
-        path: '/kredit',
-        name: 'loans',
-        component: Loans
     },
     {
         path: '/stroski',
@@ -75,8 +69,8 @@ const routes = [
         component: Dashboard
     },
     {
-        path: '/kredit/prvi-korak',
-        name: 'prvi-korak',
+        path: '/kredit',
+        name: 'kredit',
         component: LoanSteps
     },
     {
