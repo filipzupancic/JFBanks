@@ -12,7 +12,7 @@
         >
             <template #item="{ element }">
                 <div
-                    class="group p-2 my-2 w-full flex items-center text-center justify-between rounded-full border bg-blue-50 border-blue-500 shadow-sm space-x-3 text-left hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    class="group p-2 my-2 w-full flex items-center justify-between rounded-full border bg-blue-50 border-blue-500 shadow-sm space-x-3 text-center hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                     {{ element }}
                     <div @click="update(element)" class="relative pb-8 pr-4 mr-8 pr-8">
@@ -93,7 +93,7 @@ export default defineComponent({
         };
         const totalList = computed({
             get: () => {
-                var tmplist = ["Kredit", "Investicije", "Eko", "Stroški"];
+                var tmplist = ["Kredit", "Investicije", "Eko", "Stroski"];
                 return tmplist.filter((i) => !list.value.includes(i));
             },
         });
