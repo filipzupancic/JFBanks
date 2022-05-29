@@ -4,7 +4,7 @@
         <draggable
             :list="list"
             item-key="name"
-            class="bg-white overflow-hidden rounded-md px-6 pt-4"
+            class="bg-white overflow-hidden rounded-md px-6 md:px-6 lg:px-6 sm:px-0 pt-4"
             ghost-class="ghost"
             :move="checkMove"
             @start="dragging = true"

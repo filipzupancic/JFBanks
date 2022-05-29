@@ -37,7 +37,7 @@
 
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                <form class="space-y-6" action="#" method="POST">
+                <form class="space-y-6">
                     <div>
                         <label
                             for="email"
@@ -92,10 +92,9 @@
                     <div>
                         <button
                             type="submit"
-                            @click="handleSubmit"
                             class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                        >
-                            Prijava
+                        ><a href="/admin">
+                            Prijava</a>
                         </button>
                     </div>
                 </form>
@@ -115,7 +114,7 @@
                     <div class="mt-6 grid grid-cols-3 gap-3">
                         <div>
                             <a
-                                href="#"
+                                href="/admin"
                                 class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                             >
                                 <span class="sr-only"
@@ -138,7 +137,7 @@
 
                         <div>
                             <a
-                                href="#"
+                                href="/admin"
                                 class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                             >
                                 <span class="sr-only"
@@ -159,7 +158,7 @@
 
                         <div>
                             <a
-                                href="#"
+                                href="/admin"
                                 class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                             >
                                 <span class="sr-only">Sign in with GitHub</span>

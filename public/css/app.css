@@ -1999,6 +1999,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   }.sm\:px-10 {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
+  }.sm\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
   }.sm\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -2066,6 +2069,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   }.md\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }.md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }.md\:pl-64 {
     padding-left: 16rem;
   }
@@ -2153,6 +2159,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   }.lg\:py-16 {
     padding-top: 4rem;
     padding-bottom: 4rem;
+  }.lg\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }.lg\:py-4 {
     padding-top: 1rem;
     padding-bottom: 1rem;
