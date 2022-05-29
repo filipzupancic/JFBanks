@@ -126,7 +126,7 @@
                         style="float: right"
                     >
                         <button
-                            @click="nextClicked"
+                            @click="nextClickedCheck"
                             type="button"
                             class="button_green"
                         >
@@ -182,6 +182,7 @@
 
 <script>
 import { onMounted, ref, defineComponent, defineAsyncComponent } from "vue";
+import {useRouter} from "vue-router"
 import { CheckIcon } from "@heroicons/vue/solid";
 import { ChevronRightIcon, HomeIcon } from "@heroicons/vue/solid";
 import Offers from "./Offers";
@@ -205,6 +206,8 @@ export default defineComponent({
         HomeIcon,
     },
     setup(props,{emit}) {
+
+        const router=useRouter()
         var steps = ref([
             {
                 idx: 0,
@@ -242,10 +245,15 @@ export default defineComponent({
                 finished: false,
             },
         ]);
+        var loggedIn=false
         onMounted(() => {
             if (localStorage.getItem("LoanStep") !== null) {
                 currentStep.value = JSON.parse(localStorage.getItem("LoanStep"));
                 currentComponent.value=steps.value[currentStep.value].component
+                updateCircles();
+            }
+                if (localStorage.getItem("LoggedIn") !== null) {
+                loggedIn = JSON.parse(localStorage.getItem("LoggedIn"));
                 updateCircles();
             }
         });
@@ -280,6 +288,11 @@ export default defineComponent({
             updateCircles();
             console.log(step);
             console.log(steps.value);
+        };
+
+        const nextClickedCheck = () => {
+            if((!loggedIn) && (currentStep.value>=1))
+             { router.push('/login')} else{ nextClicked()}
         };
 
         const nextClicked = () => {
@@ -355,6 +368,7 @@ export default defineComponent({
             currentStep,
             finishedStatusClicked,
             nextClicked,
+            nextClickedCheck,
             prevClicked,
         };
     },

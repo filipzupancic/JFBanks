@@ -29,7 +29,7 @@
             <time :datetime="day.date" :class="['mx-auto flex h-7 w-7 items-center justify-center rounded-full', day.isSelected && day.isToday && 'bg-indigo-600', day.isSelected && !day.isToday && 'bg-gray-900']">{{ day.date.split('-').pop().replace(/^0/, '') }}</time>
           </button>
         </div>
-        <button type="button" class="focus:outline-none mt-8 w-full rounded-md border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white shadow hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"><router-link to="/kredit"> dogodek </router-link></button>
+        <router-link to="/kredit"> <button type="button" class="focus:outline-none mt-8 w-full rounded-md border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white shadow hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">dogodek </button></router-link>
       </div>
       <ol class="mt-4 divide-y divide-gray-100 text-sm leading-6 lg:col-span-5 xl:col-span-6">
         <li v-for="meeting in meetings" :key="meeting.id" class="relative flex space-x-6 py-6 xl:static">

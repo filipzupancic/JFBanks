@@ -326,16 +326,20 @@ export default defineComponent({
                 selectedComponents.value = JSON.parse(
                     localStorage.getItem("SelectedComponents")
                 );
-            } else {
+            }else {
                 localStorage.setItem(
                     "SelectedComponents",
                     JSON.stringify(selectedComponents.value)
                 );
             }
-
             if (localStorage.getItem("FirstTimeVisitor") !== null) {
-                firstTimeVisitor.value =
-                    localStorage.getItem("FirstTimeVisitor") === "true";
+                firstTimeVisitor.value =localStorage.getItem("FirstTimeVisitor") === "true";
+            }
+
+            if (localStorage.getItem("LoggedIn") !== null) {
+
+            }else{
+                localStorage.setItem("LoggedIn",false);
             }
         });
         const saveSlider = () => {
