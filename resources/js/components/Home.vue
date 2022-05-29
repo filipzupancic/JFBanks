@@ -307,9 +307,9 @@ export default defineComponent({
         const completedSteps = ref(0);
         const totalSteps = ref(10);
         var selectedComponents = ref([
-            "Investicije",
-            "Eko",
             "Kredit",
+            "Eko",
+            "Investicije",
             "Stroski",
         ]);
         var firstTimeVisitor = ref(true);

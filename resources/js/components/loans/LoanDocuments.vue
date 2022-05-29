@@ -23,28 +23,10 @@
       </div>
     </div>
   </div>
-  <Modal
-        v-model="isShow"
-        :close="closeModal"
-        @before-enter="beforeEnter"
-        @after-enter="afterEnter"
-        @before-leave="beforeLeave"
-        @after-leave="afterLeave"
-    >
-        <div class="modal">
-            
-            <button
-                @click="closeModal"
-                class="inline-flex items-center px-4 py-2 my-4 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-                NALOŽI DOKUMENT
-            </button>
-        </div>
-    </Modal>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import {defineEmits} from 'vue'
 import {
   CloudUploadIcon,
   ClockIcon,
@@ -52,6 +34,12 @@ import {
   XIcon,
 } from '@heroicons/vue/outline'
 
+const emit=defineEmits(["openTheModal"])
+
+function emitdata(){
+emit("openTheModal")
+
+}
 const features = [
   {
     name: 'Energetska izkaznica',
@@ -69,17 +57,17 @@ const features = [
   },
   {
     name: 'Izpisek plač',
-    description: 'Dokument morate še dodati. To storite s klikom na ikono nad imenom.',
+    description: 'Dokument morate še dodati. To storite s klikom na zgornjo ikono.',
     icon: CloudUploadIcon,
     color: 'bg-blue-500',
-    fun: showModal
+    fun: emitdata
   },
   {
     name: 'Dokument 4',
-    description: 'Dokument je zavrnjen. Ponovno naložite dokument.',
+    description: 'Dokument je zavrnjen. Ponovno naložite dokument s klikom na zgornjo ikono.',
     icon: XIcon,
     color: 'bg-red-500',
-    fun: showModal
+    fun: emitdata
   },
   {
     name: 'Dokument 5',
@@ -97,36 +85,5 @@ const features = [
   },
 ]
 
-const isShow = ref(false);
-
-        function showModal() {
-            isShow.value = true;
-        }
-
-        function closeModal() {
-            isShow.value = false;
-        }
-
-        function beforeEnter() {
-            console.log("before enter");
-            emit("modalsChange", true);
-        }
-
-        function afterEnter() {
-            console.log("after enter");
-        }
-
-        function beforeLeave() {
-            console.log("before leave");
-            emit("modalsChange", false);
-        }
-
-        function afterLeave() {
-            console.log("after leave");
-            localStorage.setItem(
-                "SelectedComponents",
-                JSON.stringify(selectedComponents.value)
-            );
-        }
 
 </script>

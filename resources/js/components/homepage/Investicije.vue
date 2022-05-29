@@ -3,7 +3,7 @@
     <div class="bg-white">
         <div>
             <div
-                class="max-w-7xl mx-auto text-center py-4 px-4 sm:px-6 lg:py-4 lg:px-4"
+                class="max-w-7xl mx-auto text-center py-4 px-4 sm:px-2 lg:py-4 lg:px-4"
             >
                 <h3
                     class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
