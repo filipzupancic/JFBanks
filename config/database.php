@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 
-$DATABASE_URL=parse_url("postgres://llrnutflufhqxh:10e0d3ee81c971057245b11ed566e645b4c616d2adaddc2700fc22faca8ed9e0@ec2-3-217-251-77.compute-1.amazonaws.com:5432/dav6rq2uejo0k1");
+$DATABASE_URL=parse_url("postgres://nczlkqmukljxgp:0817c379cef7578e61bb5582f0705727b01d5f619f0b9d34aaf4020c59e2a39f@ec2-34-227-120-79.compute-1.amazonaws.com:5432/db8q5icdp88cr6");
 
 return [
 
@@ -83,20 +83,20 @@ return [
         
         // local development
         
-        // 'pgsql' => [
-        //     'driver' => 'pgsql',
-        //     'url' => env('DATABASE_URL'),
-        //     'host' => env('DB_HOST', '127.0.0.1'),
-        //     'port' => env('DB_PORT', '5432'),
-        //     'database' => env('DB_DATABASE', 'forge'),
-        //     'username' => env('DB_USERNAME', 'forge'),
-        //     'password' => env('DB_PASSWORD', ''),
-        //     'charset' => 'utf8',
-        //     'prefix' => '',
-        //     'prefix_indexes' => true,
-        //     'schema' => 'public',
-        //     'sslmode' => 'prefer',
-        // ],
+        'pgsql' => [
+            'driver' => 'pgsql',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
