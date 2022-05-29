@@ -5,7 +5,7 @@ finbit.
 Minimum Lovable Product (MLP) : https://young-ridge-33595.herokuapp.com/ 
 (The app is mobile friendly - Progressive Web App)
 
-We all have something that we love to do as Luka Doncic loves playing basketball. Problem is, Luka has advisors thinking about his finances. And with J. F. Banks now you will be able to enjoy your basketball and have piece of mind knowing that your finances are in the safe hands. 
+We all have something that we love to do as Luka Doncic loves playing basketball. Problem is, Luka has advisors thinking about his finances. And with finbit now you will be able to enjoy your basketball and have piece of mind knowing that your finances are in the safe hands. 
 
 It allows you to:
 1) Connect all accounts in one place.
