@@ -112,9 +112,8 @@
                             >
                                 <keep-alive>
                                     <component
-                                        @finishedStatusEvent="
-                                            finishedStatusClicked
-                                        "
+                                        @finishedStatusEvent="finishedStatusClicked"
+                                        @openTheModal="showModal"
                                         :is="currentComponent"
                                         :key="currentStep"
                                     />
@@ -157,6 +156,28 @@
             </div>
         </div>
     </div>
+      <Modal
+        v-model="isShow"
+        :close="closeModal"
+        @before-enter="beforeEnter"
+        @after-enter="afterEnter"
+        @before-leave="beforeLeave"
+        @after-leave="afterLeave"
+    >
+        <div class="modal">
+        <div as="div" class="relative z-10">
+            <div class="relative bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full sm:p-6">           
+                <div class="mt-3 text-center sm:mt-5">
+                    <div as="h3" class="text-lg leading-6 font-medium text-gray-900"> Naložite dokument </div>
+                </div>
+                <div class="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
+                    <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:col-start-2 sm:text-sm" @click="closeModal">Naprava</button>
+                    <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:col-start-1 sm:text-sm" @click="closeModal">Kamera</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </Modal>
 </template>
 
 <script>
@@ -183,7 +204,7 @@ export default defineComponent({
         ChevronRightIcon,
         HomeIcon,
     },
-    setup() {
+    setup(props,{emit}) {
         var steps = ref([
             {
                 idx: 0,
@@ -287,7 +308,46 @@ export default defineComponent({
             console.log(status);
             steps.value[currentStep.value].finished = true;
         };
+
+        const isShow = ref(false);
+
+        function showModal() {
+            isShow.value = true;
+        }
+
+        function closeModal() {
+            isShow.value = false;
+        }
+
+        function beforeEnter() {
+            console.log("before enter");
+            emit("modalsChange", true);
+        }
+
+        function afterEnter() {
+            console.log("after enter");
+        }
+
+        function beforeLeave() {
+            console.log("before leave");
+            emit("modalsChange", false);
+        }
+
+        function afterLeave() {
+            console.log("after leave");
+
+        }
+
+
+
+
         return {
+            isShow,
+            showModal,
+            closeModal,
+            beforeEnter,
+            beforeLeave,
+            afterLeave,
             steps,
             pages,
             clickedCircleStep,

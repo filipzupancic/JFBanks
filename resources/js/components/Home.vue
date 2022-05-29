@@ -14,6 +14,14 @@
             </button> -->
         </div>
     </div>
+
+    <div class="w-full my-8 mx-4">
+        <div class="relative">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                <div class="w-full border-t border-gray-200" />
+            </div>
+        </div>
+    </div>
     <!-- <div class="lg:grid lg:grid-cols-2 py-16 lg:gap-x-6 xl:gap-x-8">
             <div class="bg-gray-100 rounded-lg p-6 flex items-center sm:p-10">
                 <div class="max-w-sm mx-auto text-center">
@@ -307,9 +315,9 @@ export default defineComponent({
         const completedSteps = ref(0);
         const totalSteps = ref(10);
         var selectedComponents = ref([
-            "Investicije",
-            "Eko",
             "Kredit",
+            "Eko",
+            "Investicije",
             "Stroski",
         ]);
         var firstTimeVisitor = ref(true);

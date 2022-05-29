@@ -4,7 +4,7 @@
         <draggable
             :list="list"
             item-key="name"
-            class="bg-white overflow-hidden rounded-md px-6 md:px-6 lg:px-6 sm:px-0 pt-4"
+            class="bg-white overflow-hidden rounded-md md:px-6 lg:px-6 sm:px-0 pt-4"
             ghost-class="ghost"
             :move="checkMove"
             @start="dragging = true"
@@ -34,7 +34,7 @@
                 v-for="(comp, idx) in totalList"
                 :key="idx"
                 style="align-items: center; text-align: center"
-                class="bg-white overflow-hidden rounded-md px-6 text-center"
+                class="bg-white overflow-hidden rounded-md text-center md:px-6 lg:px-6"
             >
                 <div
                     @click="add(comp)"

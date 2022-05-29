@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-emerald-700">
+  <div class="bg-emerald-700 w-full">
     <div class="w-full mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
       <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
         <span class="block">Čestitke.</span>

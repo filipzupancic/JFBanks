@@ -155,7 +155,7 @@
                                 <p
                                     class="mt-6 text-center text-base font-medium text-gray-500"
                                 >
-                                    Existing member?
+                                    Obstoječi uporabnik?
                                     {{ " " }}
                                     <a
                                         href="/login"

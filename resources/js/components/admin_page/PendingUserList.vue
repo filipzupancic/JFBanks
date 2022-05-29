@@ -41,10 +41,10 @@
 
 <script setup>
 const people = [
-  { name: 'Pehta', age: '55',credithworthy:'37%', type:'Poljubno',email: 'pehta@example.com'},
-  { name: 'Kekec', age: '30',credithworthy:'99%', type:'Živinoreja',email: 'kekec@example.com'},
-  { name: 'Bedanc', age: '40',credithworthy:'79%', type:'Potrošniški',email: 'bedanc@example.com'},
-  { name: 'Mojca', age: '40',credithworthy:'89%', type:'Potrošniški',email: 'bedanc@example.com'},
+  { name: 'Pehta', age: '28', credithworthy:'37%', type:'Stanovanjski', email: 'pehta@example.com'},
+  { name: 'Kekec', age: '25', credithworthy:'99%', type:'Stanovanjski', email: 'kekec@example.com'},
+  { name: 'Bedanc', age: '31', credithworthy:'79%', type:'Stanovanjski', email: 'bedanc@example.com'},
+  { name: 'Mojca', age: '27', credithworthy:'89%', type:'Stanovanjski', email: 'mojca@example.com'},
   // More people...
 ]
 </script>

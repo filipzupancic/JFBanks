@@ -707,6 +707,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
+}.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }.my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -719,9 +722,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-}.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }.mx-3 {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
@@ -1601,6 +1601,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}.shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }.outline {
   outline-style: solid;
 }.ring-1 {
@@ -1646,6 +1650,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-duration: 150ms;
 }.transition-opacity {
   transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}.transition-all {
+  transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }.duration-150 {
@@ -1896,9 +1904,16 @@ Ensure the default browser behavior of the `hidden` attribute.
     grid-column: span 2 / span 2;
   }.sm\:col-span-6 {
     grid-column: span 6 / span 6;
+  }.sm\:col-start-2 {
+    grid-column-start: 2;
+  }.sm\:col-start-1 {
+    grid-column-start: 1;
   }.sm\:-mx-6 {
     margin-left: -1.5rem;
     margin-right: -1.5rem;
+  }.sm\:my-8 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }.sm\:mx-auto {
     margin-left: auto;
     margin-right: auto;
@@ -1908,6 +1923,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: 1rem;
   }.sm\:ml-16 {
     margin-left: 4rem;
+  }.sm\:mt-5 {
+    margin-top: 1.25rem;
+  }.sm\:mt-6 {
+    margin-top: 1.5rem;
   }.sm\:mt-8 {
     margin-top: 2rem;
   }.sm\:mt-16 {
@@ -1936,6 +1955,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     max-width: 28rem;
   }.sm\:max-w-3xl {
     max-width: 48rem;
+  }.sm\:max-w-lg {
+    max-width: 32rem;
   }.sm\:flex-1 {
     flex: 1 1 0%;
   }.sm\:flex-auto {
@@ -1944,6 +1965,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     flex: none;
   }.sm\:flex-shrink-0 {
     flex-shrink: 0;
+  }.sm\:grid-flow-row-dense {
+    grid-auto-flow: row dense;
   }.sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }.sm\:flex-col {
@@ -1958,6 +1981,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     gap: 1px;
   }.sm\:gap-6 {
     gap: 1.5rem;
+  }.sm\:gap-3 {
+    gap: 0.75rem;
   }.sm\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
@@ -1984,6 +2009,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     border-bottom-left-radius: 0px;
   }.sm\:p-10 {
     padding: 2.5rem;
+  }.sm\:p-6 {
+    padding: 1.5rem;
   }.sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -2002,6 +2029,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   }.sm\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
+  }.sm\:px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }.sm\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;

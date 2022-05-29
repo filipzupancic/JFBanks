@@ -115,7 +115,7 @@
 </template>
 
 <script>
-import { defineComponent,ref,reactive,defineEmits,onBeforeMount,onUnmounted } from 'vue'
+import { defineComponent,ref,reactive,onBeforeMount,onUnmounted } from 'vue'
 import {
   Dialog,
   DialogPanel,
