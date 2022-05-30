@@ -19,7 +19,7 @@
                 {{ ' ' }}
                 <span class="text-base font-medium text-gray-500">/mesec</span>
               </p>
-              <a :href="tier.href" class="mt-8 block w-full bg-blue-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-blue-700">DOGOVORI SE ZA SESTANEK</a>
+              <a :href="loggedIn ? tier.href: '/login'" class="mt-8 block w-full bg-blue-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-blue-700">DOGOVORI SE ZA SESTANEK</a>
             </div>
             <div class="pt-6 pb-8 px-6">
               <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">Ponudba vključuje</h3>
@@ -36,7 +36,7 @@
     </div>
 </template>
 <script setup>
-import { defineComponent, h } from "vue";
+import { defineComponent, h, ref,onMounted } from "vue";
 import {
     Popover,
     PopoverButton,
@@ -350,4 +350,11 @@ const footerNavigation = {
         },
     ],
 };
+
+var loggedIn=ref(false)
+onMounted(() => {
+        if (localStorage.getItem("LoggedIn") !== null) {
+        loggedIn.value = JSON.parse(localStorage.getItem("LoggedIn"));
+    }
+});
 </script>

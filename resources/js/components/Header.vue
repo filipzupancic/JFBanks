@@ -125,21 +125,17 @@
                                     </div>
                                 </div>
                                 <div class="mt-3 space-y-1">
-                                    <DisclosureButton
-                                        as="a"
-                                        href="/admin"
-                                        class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
-                                        ><router-link :to="{ name: 'admin' }"
-                                            >Nadzorna plošča</router-link
-                                        ></DisclosureButton
-                                    >
-                                    <DisclosureButton
-                                        as="a"
-                                        class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
-                                        ><a @click="logout"
-                                            >Odjava</a
-                                        ></DisclosureButton
-                                    >
+                                    <a href="/admin">
+                                    <DisclosureButton as="aa" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">
+                                        NADZORNA PLOŠČA
+                                    </DisclosureButton>
+                                    </a>
+
+                                    <a @click="logout" href="/">
+                                    <DisclosureButton as="a" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">
+                                        Odjava
+                                    </DisclosureButton>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -302,31 +298,18 @@ export default {
         };
     },
     created() {
-        if (window.Laravel.isLoggedin) {
-            this.isLoggedIn = true;
+        if (localStorage.getItem("LoggedIn")!==null){
+        this.isLoggedIn=JSON.parse(localStorage.getItem("LoggedIn"));
         }
     },
     methods: {
         logout(e) {
-            console.log("ss");
-            e.preventDefault();
-            this.$axios.get("/sanctum/csrf-cookie").then((response) => {
-                this.$axios
-                    .post("/api/logout")
-                    .then((response) => {
-                        if (response.data.success) {
-                            window.location.href = "/";
-                        } else {
-                            console.log(response);
-                        }
-                    })
-                    .catch(function (error) {
-                        console.error(error);
-                    });
-            });
+         this.isLoggedIn=false;
+         localStorage.setItem("LoggedIn",false)
         },
     },
     setup() {
+        
         return {
             recentPosts,
             solutions,
