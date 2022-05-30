@@ -37,7 +37,7 @@ export default defineComponent({
             participants: [
                 {
                     id: "user1",
-                    name: "AI finbit",
+                    name: "Tadeja - Sparkasse",
                     imageUrl:
                         "https://www.dropbox.com/s/6ggs6yqmcwcx4i6/finbit-logo.jpeg?raw=1",
                 },
@@ -49,21 +49,21 @@ export default defineComponent({
                     type: "text",
                     author: `user1`,
                     data: {
-                        text: `Živjo Bogdan, kako ti lahko pomagam?`,
+                        text: `Živjo Živa, kako ti lahko pomagam?`,
                     },
                 },
                 {
                     type: "text",
                     author: `me`,
                     data: {
-                        text: `Živjo, potrebujem pomoč pri pridobivanju ponudb za stanovanjska posojila.`,
+                        text: `Živjo Tadeja, potrebujem pomoč pri izbiri ponudbe za stanovanjska posojila.`,
                     },
                 },
                 {
                     type: "text",
                     author: `user1`,
                     data: {
-                        text: `Ni problema, tvoje zanimanje bomo posredovali izbranim bankam in v kratkem boš dobil odgovor.`,
+                        text: `Ni problema, lahko se dogovoriva za sestanek online, ali pa se oglasiš v naši najbližji Sparkasse poslovalnici. To najlažje storiš v zavihku Koledar.`,
                     },
                 },
             ], // the list of the messages to show, can be paginated and adjusted dynamically

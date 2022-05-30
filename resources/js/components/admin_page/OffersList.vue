@@ -46,8 +46,8 @@ function dodajOffer(){
   people.value.push({ name: 'Dodatno zavarovanje stanovanja', vsebina:'Zavarovanje stanovanja',obrestnamera:'2.7%' ,email: 'fff@example.com'})
 }
 const people = ref([
-  { name: 'Paket 1', vsebina:'Zavarovanje vrta',obrestnamera:'2.2%' ,email: 'pehta@example.com'},
-  { name: 'Paket 2', vsebina:'Zavarovanje stanovanja',obrestnamera:'1.9%' ,email: 'ccc@example.com'},
+  { name: 'Paket 1', vsebina:'Zavarovanje avtomobila',obrestnamera:'2.2%' ,email: 'pehta@example.com'},
+  { name: 'Paket 2', vsebina:'Zavarovanje hiše',obrestnamera:'1.9%' ,email: 'ccc@example.com'},
    { name: 'Paket 2', vsebina:'Zavarovanje stanovanja',obrestnamera:'2.4%' ,email: 'pehtaa@example.com'},
   // More people...
 ])

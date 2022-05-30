@@ -24,7 +24,7 @@
                 Testni uporabnik | email:
                 {{ " " }}
                 <a class="font-medium text-blue-600 hover:text-blue-500"
-                    >bancni@svetovalec.si
+                    >ziva@eposta.si
                 </a>
                 {{ " " }}
                 | geslo:
@@ -190,7 +190,7 @@
 export default {
     data() {
         return {
-            email: "bancni@svetovalec.si",
+            email: "ziva@eposta.si",
             password: "sparkasse",
             error: null,
         };

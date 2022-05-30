@@ -54,7 +54,7 @@
                             
                             <div class="mt-1 sm:mt-0 sm:col-span-2">
                                 <n-space vertical>
-                                    <n-slider v-model:value="loan_amount" :step="10" />
+                                    <n-slider v-model:value="loan_amount" :marks="marks" :step="10" />
                                     <n-input-number v-model:value="loan_amount" size="small" />
                                 </n-space>
                             </div>
@@ -81,7 +81,7 @@
                             
                             <div class="mt-1 sm:mt-0 sm:col-span-2">
                                 <n-space vertical>
-                                    <n-slider v-model:value="repayment_period" :step="10" />
+                                    <n-slider v-model:value="repayment_period" :marks="marks1" :step="10" />
                                     <n-input-number v-model:value="repayment_period" size="small" />
                                 </n-space>
                             </div>
@@ -123,7 +123,7 @@
                                     class="-ml-px relative inline-flex items-center px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                                 >
                                     Brez zavarovanja
-                                    <shield-check-icon
+                                    <ban-icon
                                         class="ml-2 -mr-1 h-5 w-5 text-gray-400"
                                         aria-hidden="true"
                                     />
@@ -332,6 +332,7 @@ import { ref, defineComponent } from "vue";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import {
     LockClosedIcon,
+    BanIcon,
     CheckIcon,
     ChevronRightIcon,
     ShieldCheckIcon,
@@ -346,12 +347,17 @@ const taxes = "$9.92";
 const shipping = "$8.00";
 const total = "$141.92";
 const loan_amount = ref(50); 
-const repayment_period = ref(48);
+const repayment_period = ref(50);
 
 const marks = {
-    0: "0$",
-    100: "1M$",
+    0: "0€",
+    100: "100.000€",
 };
+
+const marks1 = {
+    0: '0 mesecev',
+    100: '100'
+}
 
 const products = [
     {

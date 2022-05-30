@@ -45,13 +45,20 @@ const timeline = [
   },
   {
     id: 3,
+    content: 'Odobritev kredita',
+    date: '',
+    icon: ClockIcon,
+    iconBackground: 'bg-yellow-500',
+  },
+  {
+    id: 4,
     content: 'Obisk notarja',
     date: '',
     icon: DotsVerticalIcon,
     iconBackground: 'bg-gray-400',
   },
   {
-    id: 4,
+    id: 5,
     content:'Podpis pogodbe',
     date:'',
     icon: DotsVerticalIcon,

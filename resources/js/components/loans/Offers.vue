@@ -3,13 +3,32 @@
         <div class="max-w-7xl mx-auto pt-4 px-4 sm:px-6 lg:px-8">
         <div class="sm:flex sm:flex-col sm:align-center">
           <!-- <h1 class="text-5xl font-extrabold text-gray-900 sm:text-center">Ponudbe</h1> -->
-          <p class="mt-5 text-xl text-gray-900 sm:text-center">Najbolj ugodne ponudbe.</p>
+          <p class="mt-5 text-xl text-gray-900 sm:text-center">Najprimernejše ponudbe.</p>
           <div class="relative mt-6 bg-gray-100 rounded-lg p-0.5 flex self-center sm:mt-8">
             <button type="button" class="relative bg-white border-gray-200 rounded-md shadow-sm py-2 w-1/2 text-sm font-medium text-gray-900 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:z-10 sm:w-auto sm:px-8">FIKSNA MERA</button>
             <button type="button" class="ml-0.5 relative border border-transparent rounded-md py-2 w-1/2 text-sm font-medium text-gray-700 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-blue-500 focus:z-10 sm:w-auto sm:px-8">SPREMENLJIVA MERA</button>
           </div>
         </div>
-        <div class="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-2">
+        <div class="lg:grid lg:grid-cols-2 py-4 lg:gap-x-4 xl:gap-x-4">
+            <div class="bg-gray-100 rounded-lg p-6 flex items-center sm:p-10">
+                <div class="max-w-sm mx-auto text-center">
+                    <h3 class="font-semibold text-lg text-gray-900">
+                        Znesek posojila
+                    </h3>
+                    <p class="mt-6 text-2xl text-emerald-500">100.000 €</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-100 rounded-lg p-6 flex items-center sm:p-10">
+                <div class="max-w-sm mx-auto text-center">
+                    <h3 class="font-semibold text-lg text-gray-900">
+                        Doba odplačevanja
+                    </h3>
+                    <p class="mt-6 text-2xl text-emerald-500">200 mesecev</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4 space-y-4 sm:mt-4 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-2">
           <div v-for="tier in tiers" :key="tier.name" class="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
             <div class="p-6">
               <h2 class="text-lg leading-6 font-medium text-gray-900">{{ tier.name }}</h2>
@@ -19,7 +38,7 @@
                 {{ ' ' }}
                 <span class="text-base font-medium text-gray-500">/mesec</span>
               </p>
-              <a :href="loggedIn ? tier.href: '/login'" class="mt-8 block w-full bg-blue-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-blue-700">DOGOVORI SE ZA SESTANEK</a>
+              <a :href="tier.href" class="mt-8 block w-full bg-blue-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-blue-700">DOGOVORI SE ZA SESTANEK</a>
             </div>
             <div class="pt-6 pb-8 px-6">
               <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">Ponudba vključuje</h3>
@@ -36,7 +55,7 @@
     </div>
 </template>
 <script setup>
-import { defineComponent, h, ref,onMounted } from "vue";
+import { defineComponent, h } from "vue";
 import {
     Popover,
     PopoverButton,
@@ -67,14 +86,14 @@ const tiers = [
   {
     name: 'Osnovni',
     href: '/koledar',
-    priceMonthly: 700,
+    priceMonthly: 550,
     description: 'Paket z osnovnim življenjskim zavarovanjem.',
     features: ['Osnovno življenjsko zavarovanje.',],
   },
   {
     name: 'Brezskrbni',
     href: '/koledar',
-    priceMonthly: 650,
+    priceMonthly: 500,
     description: 'Paket, ki vključuje dodatne storitve.',
     features: [
       'Osnovno življenjsko zavarovanje.',
@@ -350,11 +369,4 @@ const footerNavigation = {
         },
     ],
 };
-
-var loggedIn=ref(false)
-onMounted(() => {
-        if (localStorage.getItem("LoggedIn") !== null) {
-        loggedIn.value = JSON.parse(localStorage.getItem("LoggedIn"));
-    }
-});
 </script>

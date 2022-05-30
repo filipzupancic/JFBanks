@@ -243,18 +243,18 @@ export default defineComponent({
             investValue,
             stroski: {
                 0: "ne šparam",
-                50: "neki vmes",
-                100: "ful šparam",
+                50: "srednje",
+                100: "šparam",
             },
             eko: {
-                0: "don't care",
-                50: "neki vmes",
-                100: "eko frik",
+                0: "nisem eko",
+                50: "srednje",
+                100: "sem eko",
             },
             invest: {
-                0: "safe side",
-                50: "neki vmes",
-                100: "risky",
+                0: "ne tvegam",
+                50: "srednje",
+                100: "rad tvegam",
             },
         };
     },
