@@ -51,13 +51,38 @@
                                 class="block text-sm font-medium text-gray-700"
                                 >Koliko denarja potrebujete?</label
                             >
+                            
                             <div class="mt-1 sm:mt-0 sm:col-span-2">
                                 <n-space vertical>
-                                    <n-slider
-                                        v-model:value="value"
-                                        range
-                                        :marks="marks"
+                                    <n-slider v-model:value="loan_amount" :step="10" />
+                                    <n-input-number v-model:value="loan_amount" size="small" />
+                                </n-space>
+                            </div>
+                        </div>
+                        <div class="col-span-full my-8">
+                            <div class="relative">
+                                <div
+                                    class="absolute inset-0 flex items-center"
+                                    aria-hidden="true"
+                                >
+                                    <div
+                                        class="w-full border-t border-gray-200"
                                     />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-span-full py-8">
+                            <label
+                                for="email-address"
+                                class="block text-sm font-medium text-gray-700"
+                                >Pričakovana doba odplačevanja?</label
+                            >
+                            
+                            <div class="mt-1 sm:mt-0 sm:col-span-2">
+                                <n-space vertical>
+                                    <n-slider v-model:value="repayment_period" :step="10" />
+                                    <n-input-number v-model:value="repayment_period" size="small" />
                                 </n-space>
                             </div>
                         </div>
@@ -320,7 +345,9 @@ const discount = { code: "CHEAPSKATE", amount: "$16.00" };
 const taxes = "$9.92";
 const shipping = "$8.00";
 const total = "$141.92";
-const value = ref([50, 70]);
+const loan_amount = ref(50); 
+const repayment_period = ref(48);
+
 const marks = {
     0: "0$",
     100: "1M$",

@@ -961,8 +961,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }.grid-cols-12 {
   grid-template-columns: repeat(12, minmax(0, 1fr));
-}.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
 }.flex-col {
   flex-direction: column;
 }.flex-wrap {
@@ -995,8 +993,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   gap: 2rem;
 }.gap-4 {
   gap: 1rem;
-}.gap-3 {
-  gap: 0.75rem;
 }.gap-y-8 {
   row-gap: 2rem;
 }.gap-y-6 {
